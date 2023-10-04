@@ -64,6 +64,10 @@ html,body,li,ul {
     padding: 0.25rem;
 
 }
+
+.pl-3 {
+    padding-left: .0rem;
+}
     </style>
 </head>
 <body>
@@ -77,7 +81,7 @@ html,body,li,ul {
                     <strong>nome</strong> <?php echo $allievo['nome']; ?> <br>
                     <strong>cognome</strong> <?= $allievo['cognome']; ?> <br>
                 </p>
-                <ul class="card-passatempi">
+                <ul class="list-passatempi">
                     <?php foreach ($allievo['passatempi'] as $passatempo) {
                         echo "<li>$passatempo</li>";
                         // <li>Tennis</li>
