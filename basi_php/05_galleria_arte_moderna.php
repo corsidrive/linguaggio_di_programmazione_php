@@ -11,7 +11,7 @@ $opere_array = json_decode($opere_string,true);
 
 // echo count($opere_array);
 // echo "<br>";
-// print_r($opere_array[3]);
+print_r($opere_array[3]);
 ?>
 <!-- <img src="http://93.62.170.226/foto/mao/878_Hb20.jpg"> -->
 <!DOCTYPE html>
@@ -28,7 +28,12 @@ $opere_array = json_decode($opere_string,true);
     </p>
     <ul>
         <?php foreach ($opere_array as $opera) { ?>
-            <li> <strong> <?= $opera['Titolo'] ?> </strong> (<?= $opera['Datazione'] ?>) </li>
+            <li> 
+                <a href="<?= $opera['Immagine'] ?>" target="_blank" >
+                <strong> <?= $opera['Titolo'] ?> </strong> 
+                (<?= $opera['Datazione'] ?>) 
+                </a>
+            </li>
         <?php } ?>
     </ul>    
 </body>
