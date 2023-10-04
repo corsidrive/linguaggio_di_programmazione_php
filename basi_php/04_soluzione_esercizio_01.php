@@ -19,7 +19,7 @@ $allievi = [
     ],
     [
         "nome"=>"Martino",
-        "cognome"=> "Sovramonte",
+        "cognome"=> "Campanaro Fra (bro)",
         "passatempi" => ["Cinema","Sport","Leggere","Teatro","Cucinare"]
     ]
 ];
@@ -42,10 +42,12 @@ $allievi = [
         <!-- inzia parte da ripetere  -->
         <?php foreach ($allievi as $allievo) { ?>
             <div class="card-allievo">  
+                <!-- <?php  print_r($allievo) ?> -->
                 <p>
-                    <strong>nome</strong> <br>
-                    <strong>cognoe</strong> <br>
+                    <strong>nome</strong> <?php echo $allievo['nome']; ?> <br>
+                    <strong>cognome</strong> <?= $allievo['cognome']; ?> <br>
                 </p>
+                
             </div>
         <?php } ?>
         <!-- finisce parte da ripetere  -->
