@@ -1,4 +1,5 @@
-<?php 
+<?php
+// CIAO
 # Controller organizza  le informazioni
 $allievi = [
     [
