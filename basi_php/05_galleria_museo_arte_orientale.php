@@ -23,6 +23,7 @@ $opere_array = json_decode($opere_string,true);
 </head>
 <body>
     <h1 class="opere--header"> Elenco delle opere del MAO </h1>
+    <p>ciao</p>
     <p class="opere--description">
         Sono presenti: <?= count($opere_array) ?> opere.
     </p>
