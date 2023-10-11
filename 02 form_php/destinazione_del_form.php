@@ -1,6 +1,6 @@
 <?php 
 
-echo "Ciao " . $_GET['nome'] . " come va ?";
+echo "Ciao " . $_POST['nome'] . " come va ?";
 
 print_r($_GET);
 echo "<hr>";
