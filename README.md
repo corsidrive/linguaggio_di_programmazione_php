@@ -1,6 +1,6 @@
 # Corso php
 
-## 10/11 Ottobre
+## 10/11 Ottobre (12h)
 
 ### Form
 
@@ -13,7 +13,7 @@
 - [Usare i form in PHP](https://www.w3schools.com/php/php_forms.asp)
 - [Sintassi dei form in HTML](https://www.w3schools.com/html/html_form_elements.asp)
 
-## 4 Ottobre
+## 4 Ottobre (4h)
 
 ### Index Array e Associative Array
 
