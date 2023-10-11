@@ -6,7 +6,7 @@
     <title>FORM IN PHP</title>
 </head>
 <body>
-    <form action="destinazione_del_form.php" method="GET">
+    <form action="destinazione_del_form.php" method="POST">
         <fieldset>
             <legend>Dati Anagrafici</legend>
             <label for="nome">nome di battesimo<label>
