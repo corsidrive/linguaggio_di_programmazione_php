@@ -1,5 +1,10 @@
 <?php 
 
+error_reporting(E_ALL);
+
+require "funzione_cerca.php";
+
+
 $allievi = [
     [
         "nome"=>"Mario",
@@ -29,24 +34,31 @@ if(is_array(cerca_allievo("Martino",$allievi))){
     echo "ok il risultato è un array<br>";
 }
 
-
+// test / spec
 if(count(cerca_allievo("Martino",$allievi)) === 2) {
     echo "ok ci sono 2  Martino<br>";
 };
 
+if(count(cerca_allievo("martino",$allievi)) === 2) {
+    echo "ok ci sono 2  Martino<br>";
+};
 
-function cerca_allievo(string $search,$allievi_locale) : array {
-    
-    $risultato = [];
-    foreach ($allievi_locale as  $allievo) {
-        if($allievo['nome'] === $search){
-            $risultato[] = $allievo;
-        };
-    }
+if(count(cerca_allievo("ino",$allievi)) === 2) {
+    echo "ok ci sono 0  Martino<br>";
+};
 
 
-    return $risultato;
-}
+// function cerca_allievo(string $search,$allievi_locale) : array {
+//     $risultato = [];
+//     foreach ($allievi_locale as  $allievo) {
+//         if($allievo['nome'] === $search){
+//             $risultato[] = $allievo;
+//         };
+//     }
+
+
+//     return $risultato;
+// }
 
 // cerca_allievo("Mario");
 // cerca_allievo("Italo");
