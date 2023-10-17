@@ -20,7 +20,10 @@ $opere_array = json_decode($opere_string,true);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+   
+                <a data-lightbox="operamao"  href="<?= $opera['Immagine'] ?>" target="_blank" >
+                <strong> <?= $opera['Titolo'] ?> </strong> 
+        <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galleria MAO Elenco delle opere</title>
     <link href="./dist/css/lightbox.min.css" rel="stylesheet" />
@@ -33,10 +36,7 @@ $opere_array = json_decode($opere_string,true);
     </p>
     <ul>
         <?php foreach ($opere_array as $opera) { ?>
-            <li> 
-                <a data-lightbox="operamao"  href="<?= $opera['Immagine'] ?>" target="_blank" >
-                <strong> <?= $opera['Titolo'] ?> </strong> 
-                (<?= $opera['Datazione'] ?>) 
+            <li>          (<?= $opera['Datazione'] ?>) 
                 </a>
             </li>
         <?php } ?>
