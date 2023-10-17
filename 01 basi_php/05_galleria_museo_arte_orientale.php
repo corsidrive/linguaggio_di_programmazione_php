@@ -9,6 +9,9 @@ $opere_string = file_get_contents("https://gestione.fondazionetorinomusei.it/med
 
 $opere_array = json_decode($opere_string,true);
 
+
+
+#  FUNZIONE RICERCA
 // echo count($opere_array);
 // echo "<br>";
 // print_r($opere_array[3]);

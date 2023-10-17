@@ -29,22 +29,45 @@ $allievi = [
 ];
 
 
-/** il  */
-if(is_array(cerca_allievo("Martino",$allievi))){
-    echo "ok il risultato è un array<br>";
+/** se Il risultato non è un array  */
+
+
+if(!is_array(cerca_allievo("Martino",$allievi))){
+    echo "1.il risultato è non un array<br>";
+    echo "ho trovatou un ".gettype(cerca_allievo("Martino",$allievi));
 }
 
+
 // test / spec
-if(count(cerca_allievo("Martino",$allievi)) === 2) {
-    echo "ok ci sono 2  Martino<br>";
+if(count(cerca_allievo("Martino",$allievi)) !== 2) {
+    echo "2.mi aspettavo  2  Martino<br>";
+    echo "ma ho trovato ". count(cerca_allievo("Martino",$allievi));
 };
 
-if(count(cerca_allievo("martino",$allievi)) === 2) {
-    echo "ok ci sono 2  Martino<br>";
+
+
+if(count(cerca_allievo("martino",$allievi)) !== 2) {
+    echo "3.mi aspettavo  2  martino<br>";
+    echo "ma ho trovato " . count(cerca_allievo("martino",$allievi)) . "<br>";
 };
 
-if(count(cerca_allievo("ino",$allievi)) === 2) {
-    echo "ok ci sono 0  Martino<br>";
+
+
+if(count(cerca_allievo("ino",$allievi)) !== 0) {
+    echo "4.mi aspettavo di trovare 0<br>";
+    echo "ho trovato  " . count(cerca_allievo("ino",$allievi)) . "<br>";
+};
+
+
+if(count(cerca_allievo("martino  ",$allievi)) !== 2) {
+    echo "5.mi aspettavo  2  martino <br>";
+    echo "ma ho trovato " . count(cerca_allievo("martino",$allievi)) . "<br>";
+};
+
+
+if(count(cerca_allievo("MArTino",$allievi)) !== 2) {
+    echo "6.mi aspettavo  2  martino <br>";
+    echo "ma ho trovato " . count(cerca_allievo("martino",$allievi)) . "<br>";
 };
 
 
