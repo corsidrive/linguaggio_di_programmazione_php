@@ -7,8 +7,8 @@ function opere_list($opere) { ?>
     </p>
     <ul>
         <?php foreach ($opere as $opera) { ?>
-            <li>          (<?= $opera['Datazione'] ?>) 
-                </a>
+            <li>          
+            <a data-lightbox="mao" href="<?= $opera['Immagine'] ?>"><?= $opera['Titolo'] ?> </a>(<?= $opera['Datazione'] ?>) 
             </li>
         <?php } ?>
     </ul>  

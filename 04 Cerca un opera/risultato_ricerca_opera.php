@@ -1,4 +1,13 @@
-<?php
+<?php 
+require "vendor/carica_opere.php";
+require "vendor/cerca_opera.php";
+require "vendor/visualizza_opere.php";
+
+$search = filter_input(INPUT_GET,'search');
+$opere  = carica_opere("https://gestione.fondazionetorinomusei.it/media/opendata/COLLEZIONI_MAO.jos.json");
+// var_dump($search,$opere);
+$search_result = cerca_opera($search,$opere);
+var_dump($search_result);
 
 ?>
 <!DOCTYPE html>
@@ -14,18 +23,9 @@
 <body>
     <h1 class="opere--header"> Elenco delle opere del MAO </h1>
 
-    <p class="opere--description"><a href="http://" target="_blank" rel="noopener noreferrer"></a>
-        Sono presenti:
-        <?= count($opere_array) ?> opere.
-    </p>
-    <ul>
-        <?php foreach ($opere_array as $opera) { ?>
-            <li> (
-                <?= $opera['Datazione'] ?>)
-                </a>
-            </li>
-        <?php } ?>
-    </ul>
+
+    <?php opere_list($search_result) ?>
+   
 
     <script src="./dist/js/lightbox-plus-jquery.min.js"> </script>
 </body>
