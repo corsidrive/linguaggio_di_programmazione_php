@@ -5,9 +5,9 @@ require "vendor/visualizza_opere.php";
 
 $search = filter_input(INPUT_GET,'search');
 $opere  = carica_opere("https://gestione.fondazionetorinomusei.it/media/opendata/COLLEZIONI_MAO.jos.json");
-// var_dump($search,$opere);
+
 $search_result = cerca_opera($search,$opere);
-var_dump($search_result);
+
 
 ?>
 <!DOCTYPE html>
