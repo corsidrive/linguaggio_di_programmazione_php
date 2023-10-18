@@ -1,16 +1,10 @@
 <?php
 
 ?>
-<!-- <img src="http://93.62.170.226/foto/mao/878_Hb20.jpg"> -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
-
-    <a data-lightbox="operamao" href="<?= $opera['Immagine'] ?>" target="_blank">
-        <strong>
-            <?= $opera['Titolo'] ?>
-        </strong>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Galleria MAO Elenco delle opere</title>
