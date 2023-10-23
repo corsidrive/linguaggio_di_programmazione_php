@@ -1,3 +1,19 @@
+<?php 
+require "./vendor/search_services.php";
+# Prendere informazioni dal form
+$search_word = $_REQUEST['search_word']; // $_GET $_POST 
+
+# Procurami l'elenco delle opere
+/** TODO: gestire file mancante */
+$opere_string = file_get_contents("https://gestione.fondazionetorinomusei.it/media/opendata/COLLEZIONI_MAO.jos.json");
+$opere_array = json_decode($opere_string,true);
+
+# Filtrare le opere che  corrispondono alla ricerca
+$opere_trovate = cerca_opera($search_word,$opere_array);
+
+print_r($opere_trovate);
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,10 +27,12 @@
         <h1>Museo</h1>
     </header>
     <section id="page__section" class="px-2">
-        <p>Risutati ricerca per: <strong>Ciccio</strong></p>
+        <p>Risutati ricerca per: <strong><?= $search_word  ?></strong></p>
     </section>
     <main>
         <div class="container">
+
+            <!-- Visualizzare i risultati   -->  
             <table class="table">
                 <thead>
                     <tr>
@@ -24,11 +42,18 @@
                 </thead>
 
                 <tbody>
+                    <?php foreach ($opere_trovate as $opera_trovata) :  ?>
+
                     <tr>
-                    <td> Gioconda </td>
-                    <td> Leonardo da vinci</td>
+                        <td> <?= $opera_trovata["Titolo"] ? $opera_trovata["Titolo"] : "sconosciuto" ?> </td>
+                        <td> <?= $opera_trovata["Autore"] ? $opera_trovata["Autore"] : "sconosciuto" ?> </td>
                     </tr>
+                        
+                    <?php endforeach; ?>
+
                 </tbody>
+
+
             </table>
         </div>
     </main>
