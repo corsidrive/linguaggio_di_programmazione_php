@@ -1,19 +1,23 @@
 <?php 
 require "./vendor/search_services.php";
 # Prendere informazioni dal form
-$search_word = $_REQUEST['search_word']; // $_GET $_POST 
+
 
 # Procurami l'elenco delle opere
 /** TODO: gestire file mancante */
-$opere_string = file_get_contents("https://gestione.fondazionetorinomusei.it/media/opendata/COLLEZIONI_MAO.jos.json");
+$opere_string = file_get_contents("https://gestione.fondazionetorinomusei.it/media/opendata/COLLEZIONI_GAM.json");
 $opere_array = json_decode($opere_string,true);
+$error = json_last_error();
 
 if(JSON_ERROR_SYNTAX === json_last_error()){
     echo "Il formato del file non è corretto";
     
 }  
+
+var_dump($error);
+
 # Filtrare le opere che  corrispondono alla ricerca
-$opere_trovate = cerca_opera($search_word,$opere_array);
+$opere_trovate = $opere_array;
 
 // print_r($opere_trovate);
 
@@ -23,7 +27,7 @@ $opere_trovate = cerca_opera($search_word,$opere_array);
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Risultato di ricerca</title>
+    <title>Oprere MAO</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <body>
@@ -31,7 +35,7 @@ $opere_trovate = cerca_opera($search_word,$opere_array);
         <h1>Museo</h1>
     </header>
     <section id="page__section" class="px-2">
-        <p>Risutati ricerca per: <strong><?= $search_word  ?></strong></p>
+        <p>Oprere <acronim>MAO</acronim></p>
     </section>
     <main>
         <div class="container">

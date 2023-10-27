@@ -15,7 +15,6 @@
     </section>
     <main>
         <div class="container">
-
             <form action="risultato_ricerca_opera.php" method="GET">
                 <div class="mb-3">
                     <label for="search_word" class="form-label">Cerca un opera</label>
