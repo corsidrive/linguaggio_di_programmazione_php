@@ -4,9 +4,12 @@ require "./vendor/search_services.php";
 $search_word = $_REQUEST['search_word']; // $_GET $_POST 
 
 # Procurami l'elenco delle opere
+
 /** TODO: gestire file mancante */
 $opere_string = file_get_contents("https://gestione.fondazionetorinomusei.it/media/opendata/COLLEZIONI_MAO.jos.json");
 $opere_array = json_decode($opere_string,true);
+
+// -------------------------------------------------------
 
 # Filtrare le opere che  corrispondono alla ricerca
 $opere_trovate = cerca_opera($search_word,$opere_array);
