@@ -8,7 +8,7 @@ $opere = ottieni_opere("https://gestione.fondazionetorinomusei.it/media/opendata
 $opera_da_cercare = $_REQUEST['search_word'];
 
 $opere_trovate = cerca_opera($opera_da_cercare,$opere);
-
+$page['slug'] = "cerca";
 $page['page__title'] = "Ricerca Museo";
 $page['page__header'] = "Fondazione Torino Musei";
 $page['page__section'] = "hai cercato: <strong>$opera_da_cercare</strong>";

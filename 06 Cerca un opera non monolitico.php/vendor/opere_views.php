@@ -16,6 +16,8 @@ function get_header($data) { ?>
 
     <section class="container">
         <ul class="navbar-nav text-uppercase">
+
+    
             <!-- <li class="nav-item active"><a class="nav-link" href="#">Home</a></li> -->
             <li class="nav-item"><a class="nav-link <?= $data['slug']=='cerca' ? 'active':'' ?>" href="./index.php">Cerca</a></li>
             <li class="nav-item"><a class="nav-link <?= $data['slug']=='gam' ? 'active':'' ?>" href="./opere_gam.php">GAM</a></li>
