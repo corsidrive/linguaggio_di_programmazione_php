@@ -1,0 +1,28 @@
+@startuml
+
+Museo -right-{ Opera : 1:n 
+' Autore --{ Opera : 1:n 
+
+class Museo {
+    museo_id (PK)
+    slug
+    nome
+}
+
+' class Autore {
+'     nome
+'     cognome
+' }
+
+class Opera {
+    opera_id
+    autore
+    titolo:var_char
+    datazione:var_char
+    ' data:Date 
+    tecnica
+    dimensioni
+    immagine
+    museo_id (FK)
+}
+@enduml
