@@ -5,16 +5,14 @@ require_once "./vendor/fetch_opere_services.php";
 require_once "./vendor/opere_views.php"; 
 
 $opere = ottieni_opere("https://gestione.fondazionetorinomusei.it/media/opendata/COLLEZIONI_MAO.jos.json");
-$opera_da_cercare = $_REQUEST['search_word'];
 
-$opere_trovate = cerca_opera($opera_da_cercare,$opere);
-
-$page['page__title'] = "Ricerca Museo";
+$page['slug'] = 'mao';
+$page['page__title'] = "Opere del MAO (Museo D'arte Orientale)";
 $page['page__header'] = "Fondazione Torino Musei";
-$page['page__section'] = "hai cercato: <strong>$opera_da_cercare</strong>";
+$page['page__section'] = $page['page__title'];
 
 get_header($page);
-opere_table($opere_trovate);
+opere_table($opere);
 get_footer($page);
 ?>
 

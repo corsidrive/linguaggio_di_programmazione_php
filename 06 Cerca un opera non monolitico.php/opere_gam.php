@@ -6,6 +6,7 @@ require_once "./vendor/opere_views.php";
 
 $opere = ottieni_opere("./resources/COLLEZIONI_GAM.json");
 
+$page['slug'] = 'gam';
 $page['page__title'] = "Opere della GAM (Galleria d'arte moderna)";
 $page['page__header'] = "Fondazione Torino Musei";
 $page['page__section'] = $page['page__title'];
