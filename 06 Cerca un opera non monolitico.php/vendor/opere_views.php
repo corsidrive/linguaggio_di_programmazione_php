@@ -10,15 +10,25 @@ function get_header($data) { ?>
         </head>
     <body>
     <header id="page__header" class="bg-primary px-2 py-5">
-        <h1><?= $data['page__header'] ?></h1>
+        <div class="container"><h1><?= $data['page__header'] ?></h1></div>
     </header>
+    <nav class="navbar navbar-expand-sm bg-light">
+
+    <section class="container">
+        <ul class="navbar-nav text-uppercase">
+            <!-- <li class="nav-item active"><a class="nav-link" href="#">Home</a></li> -->
+            <li class="nav-item"><a class="nav-link <?= $data['slug']=='cerca' ? 'active':'' ?>" href="./index.php">Cerca</a></li>
+            <li class="nav-item"><a class="nav-link <?= $data['slug']=='gam' ? 'active':'' ?>" href="./opere_gam.php">GAM</a></li>
+            <li class="nav-item"><a class="nav-link <?= $data['slug']=='mao' ? 'active':'' ?>" href="./opere_mao.php">MAO</a></li>
+        </ul>
+    </section>
     
+</nav>
     
     
     <section id="page__section" class="container">
         <h2 class="h4 py-4"><?= $data['page__section'] ?></h2>
     </section>
-
 
 
     <main>
