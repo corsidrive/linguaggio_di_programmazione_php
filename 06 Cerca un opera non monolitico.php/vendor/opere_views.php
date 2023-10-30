@@ -12,13 +12,23 @@ function get_header($data) { ?>
     <header id="page__header" class="bg-primary px-2 py-5">
         <h1><?= $data['page__header'] ?></h1>
     </header>
+    <nav class="navbar navbar-expand-sm bg-light">
+
+    <section class="container">
+        <ul class="navbar-nav">
+            <!-- <li class="nav-item active"><a class="nav-link" href="#">Home</a></li> -->
+            <li class="nav-item"><a class="nav-link" href="./index.php">Cerca</a></li>
+            <li class="nav-item"><a class="nav-link" href="./opere_gam.php">GAM</a></li>
+            <li class="nav-item"><a class="nav-link" href="./opere_mao.php">MAO</a></li>
+        </ul>
+    </section>
     
+</nav>
     
     
     <section id="page__section" class="container">
         <h2 class="h4 py-4"><?= $data['page__section'] ?></h2>
     </section>
-
 
 
     <main>
