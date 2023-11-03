@@ -14,3 +14,5 @@ Creare la navigazione tra 4 pagine
 - pagina con tutte le opere del MAO
 - pagina con tutte le opere della GAM 
 
+
+cls && php ./test/test_import.php
