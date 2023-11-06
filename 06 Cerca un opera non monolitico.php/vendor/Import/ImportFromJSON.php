@@ -6,10 +6,15 @@ class ImportFromJSON {
 
     public static function execute($museo) {
         $opere = ottieni_opere($museo->url);
-        print_r($opere);
+        //print_r($opere);
+
+        $operaCrud = new OperaCRUD;
+        foreach ($opere as  $opera) {
+
+            $operaCrud->create($opera); 
         
-        $operaCrud = new OperaCrud;
-        $operaCrud->create($opera);        
+        }
+
         # CRUD      | SQL       | HTTP
         # Create    | Insert    | POST
         # Read      | Select    | GET    | museo.it/opera/12

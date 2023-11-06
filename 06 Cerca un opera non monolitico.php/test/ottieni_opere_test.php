@@ -6,4 +6,6 @@ var_dump(file_exists($path_json));
 
 $result = ottieni_opere($path_json);
 
+
+
 var_dump($result);

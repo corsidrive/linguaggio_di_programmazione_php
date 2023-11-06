@@ -1,6 +1,6 @@
 <?php 
-require_once "./vendor/Import/ImportFromJSON.php";
-require_once "./vendor/fetch_opere_services.php";
+require_once "../vendor/Import/ImportFromJSON.php";
+require_once "../vendor/fetch_opere_services.php";
 # fetch_opere_services.php
 # simula l'operzione di ottenere un museo dal database
 $museo = new stdClass;
