@@ -10,7 +10,7 @@ class ImportFromJSON {
 
         $operaCrud = new OperaCRUD;
         foreach ($opere as  $opera) {
-
+            $opera["museo_id"] = $museo->id; 
             $operaCrud->create($opera); 
         
         }
