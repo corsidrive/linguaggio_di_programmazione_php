@@ -12,7 +12,7 @@ class ImportFromJSON {
         foreach ($opere as  $opera) {
             $opera["museo_id"] = $museo->id; 
             $operaCrud->create($opera); 
-        
+            
         }
 
         # CRUD      | SQL       | HTTP

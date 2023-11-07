@@ -18,9 +18,7 @@ class OperaCRUD {
 
 
     public function create($opera) {
-        // echo __CLASS__."::".__FUNCTION__."\n" ;
-        print_r($opera);
-
+    
         // $autore = ";DROP DATABASE museo;";
         $autore = $opera["Autore"];
         $titolo = $opera["Titolo"];
@@ -58,13 +56,18 @@ class OperaCRUD {
         $pdo_stm->bindValue(":museo_id", $museo_id);
 
         $pdo_stm->execute();
+
         
-        // $this->conn->query($query);
-
-        die();
-
     }
-    public function readOne($opera_id)  {}
+    public function readOne($opera_id)  {
+
+        $query = "SELECT * FROM `opera` where `opera_id` = :opera_id ;";
+        $pdo_stm = $this->conn->prepare($query);
+        $pdo_stm->bindValue(':opera_id',$opera_id);       
+        $pdo_stm->execute();
+        $result = $pdo_stm->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 
     // NOTE forse opera_id non serve
     public function update($opera_id,$opera)  {
