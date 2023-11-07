@@ -6,18 +6,21 @@ require_once "../vendor/crud/OperaCRUD.php";
 
 # Creo un istanza del crud delle opere
 $crud = new OperaCRUD();
-$result = $crud->readOne(10);
+$opera = $crud->readOne(10);
+// $result[0]['Titolo'] 
 
-# 1
-// print_r($result);
-
-// # 2
-// var_dump($result);
-
-// # 3 
-// $titolo = $result[0]['titolo'];
-// echo "Quest' opera ha come titolo: $titolo";
-
+$titolo = $opera['titolo'];
 if($titolo !=="Mahākāla"){
-    echo "Test è fallito";
+    echo "Test è fallito, MI ASPETTAVO DI TROVARE Mahākāla";
 }
+
+
+$opera_che_non_esiste = $crud->readOne(1000000000);
+if(!($opera_che_non_esiste === false)){
+    echo "MI ASPETTAVO DI TROVARE FAlSE";
+}
+
+
+$id_e_una_stringa = $crud->readOne("ciccio");
+var_dump($id_e_una_stringa);
+$opera_che_non_esiste = $crud->readOne(";DROP TABLE opera;");
