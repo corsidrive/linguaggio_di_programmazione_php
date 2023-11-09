@@ -77,7 +77,17 @@ class OperaCRUD {
     }
 
     public function readAll(){
-
+        $query = "SELECT * FROM opera;";
+        $pdo_stm = $this->conn->prepare($query);
+        $pdo_stm->execute();
+        
+        // $res = $pdo_stm->fetchAll(PDO::FETCH_ASSOC);
+        // if(count($res) == 0){
+        //     return false;
+        // }else{
+        //     return $res;
+        // }
+        return $pdo_stm->fetchAll(PDO::FETCH_ASSOC); // [] --> false
     } 
 
 
