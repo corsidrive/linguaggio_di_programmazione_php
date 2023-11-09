@@ -1,7 +1,10 @@
 <?php
+require_once("config.php");
 require_once "./vendor/search_services.php";
 require_once "./vendor/fetch_opere_services.php";
 require_once "./vendor/opere_views.php";
+
+
 
 $page['slug'] = 'cerca';
 $page['page__title'] = "Ricerca Museo";
