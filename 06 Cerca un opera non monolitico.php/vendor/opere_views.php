@@ -21,14 +21,14 @@ function get_header($data) {
 
             <!-- <li class="nav-item active"><a class="nav-link" href="#">Home</a></li> -->
             <li class="nav-item"><a class="nav-link <?= $data['slug']=='cerca' ? 'active':'' ?>" 
-                    href="<?php echo SITE_DIR . '/index.php' ?>">Cerca</a></li>
+                    href="<?php echo SITE_URL . '/index.php' ?>">Cerca</a></li>
             <li class="nav-item">
                 <a class="nav-link <?= $data['slug']=='gam' ? 'active':'' ?>" 
-                    href="<?= SITE_DIR . '/opere_gam.php';?>">GAM</a></li>
+                    href="<?= SITE_URL . '/opere_gam.php';?>">GAM</a></li>
             <li class="nav-item"><a class="nav-link <?= $data['slug']=='mao' ? 'active':'' ?>" 
-                    href="<?= SITE_DIR . '/opere_mao.php' ?>">MAO</a></li>
+                    href="<?= SITE_URL . '/opere_mao.php' ?>">MAO</a></li>
             <li class="nav-item"><a class="nav-link <?= $data['slug']=='opera_create' ? 'active':'' ?>" 
-                    href="<?= SITE_DIR . '/admin/opera_create_form.php' ?>">Aggiungi un opera</a></li>
+                    href="<?= SITE_URL . '/admin/opera_create_form.php' ?>">Aggiungi un opera</a></li>
         
         </ul>
     </section>
