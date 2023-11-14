@@ -2,15 +2,30 @@
 require_once("../config.php");
 require_once(SITE_DIR."/vendor/opere_views.php");
 require_once(SITE_DIR."/vendor/crud/OperaCRUD.php");
+require_once(SITE_DIR."/vendor/Validators.php");
 
-if(count($_POST)> 0){
-    
- 
+print_r($_SERVER['REQUEST_METHOD']);
+
+# Valore predefinito
+$titolo = "";
+$autore = "";
+
+if($_SERVER['REQUEST_METHOD']=="POST"){
     
     $opera = $_POST["opera"];
+    
+    $titolo = $opera['Titolo'];
 
-    $operaCrud = new OperaCRUD();
-    $operaCrud->create($opera);
+
+    $titolo = Validators::required($titolo);
+    $autore = Validators::required($opera["Autore"]);
+
+    # risultato della validazione utilizzo per  sapere se posso salvare o no l'opera
+    if($titolo !== false && $autore !== false){
+        $operaCrud = new OperaCRUD();
+        $operaCrud->create($opera);
+    }
+
 }
 
 
@@ -25,12 +40,18 @@ get_header($page);
 ?>
 <form action="<?= SITE_URL.'/admin/opera_create_form.php'  ?>" method="post">
 <div class="mb-3">
-    <label for="titolo" class="form-label">Titolo dell'opera</label>
-    <input type="text" class="form-control" name="opera[Titolo]" id="titolo">
+    <label for="titolo"  class="form-label">Titolo dell'opera</label>
+    <input type="text"  class="form-control" name="opera[Titolo]" id="titolo">
+    <?php 
+    if($titolo === false) {
+        echo "<strong class='text-danger'>Il titolo è obbligatorio</strong>";
+    } 
+    ?> 
 </div>
 <div class="mb-3">
     <label for="autore" class="form-label">Autore dell'opera</label>
     <input type="text" class="form-control" name="opera[Autore]" id="autore">
+    <?= $autore === false ?  "<strong class='text-danger'>L'autore è obbligatorio</strong>" : "" ?>
 </div>
 <div class="mb-3">
     <label for="datazione" class="form-label">datazione dell'opera</label>
