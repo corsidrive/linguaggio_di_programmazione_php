@@ -9,19 +9,27 @@ print_r($_SERVER['REQUEST_METHOD']);
 # Valore predefinito
 $titolo = "";
 $autore = "";
-
+$immagine = "";
 if($_SERVER['REQUEST_METHOD']=="POST"){
     
     $opera = $_POST["opera"];
+    // $opera = filter_input(INPUT_POST,"opera");
     
+    
+    /*
+     * filter_var("ciccio",FILTER_VALIDATE_URL);
+     * filter_var("http://miosiot.it/cartella nome", FILTER_SANITIZE_URL);
+     */
+
     $titolo = $opera['Titolo'];
 
 
     $titolo = Validators::required($titolo);
     $autore = Validators::required($opera["Autore"]);
-
+    $immagine = Validators::isUrl($opera["Immagine"]);
+    
     # risultato della validazione utilizzo per  sapere se posso salvare o no l'opera
-    if($titolo !== false && $autore !== false){
+    if($titolo !== false && $autore !== false && $immagine !== false){
         $operaCrud = new OperaCRUD();
         $operaCrud->create($opera);
     }
@@ -41,7 +49,7 @@ get_header($page);
 <form action="<?= SITE_URL.'/admin/opera_create_form.php'  ?>" method="post">
 <div class="mb-3">
     <label for="titolo"  class="form-label">Titolo dell'opera</label>
-    <input type="text"  class="form-control" name="opera[Titolo]" id="titolo">
+    <input type="text"  value="<?= $titolo ?>" class="form-control" name="opera[Titolo]" id="titolo">
     <?php 
     if($titolo === false) {
         echo "<strong class='text-danger'>Il titolo è obbligatorio</strong>";
@@ -50,7 +58,7 @@ get_header($page);
 </div>
 <div class="mb-3">
     <label for="autore" class="form-label">Autore dell'opera</label>
-    <input type="text" class="form-control" name="opera[Autore]" id="autore">
+    <input type="text" value="<?php echo $autore ?>" class="form-control" name="opera[Autore]" id="autore">
     <?= $autore === false ?  "<strong class='text-danger'>L'autore è obbligatorio</strong>" : "" ?>
 </div>
 <div class="mb-3">
@@ -63,7 +71,8 @@ get_header($page);
 </div>
 <div class="mb-3">
     <label for="immagine" class="form-label">Immagine</label>
-    <input type="text" class="form-control" name="opera[Immagine]" id="immagine">
+    <input type="text" value="<?= $immagine ?>" class="form-control" name="opera[Immagine]" id="immagine">
+    <?= $immagine == false ? "<strong class='text-danger'>L'url dell' immagine è sbagliata </strong>":"" ?>
 </div>
 <div class="mb-3">
     <label for="dimensioni" class="form-label">Dimensioni</label>
