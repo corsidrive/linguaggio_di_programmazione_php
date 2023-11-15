@@ -12,21 +12,14 @@ $immagine = "";
 if($_SERVER['REQUEST_METHOD']=="POST"){
     
     $opera = $_POST["opera"];
-    // $opera = filter_input(INPUT_POST,"opera");
-    
-    
-    /*
-     * filter_var("ciccio",FILTER_VALIDATE_URL);
-     * filter_var("http://miosiot.it/cartella nome", FILTER_SANITIZE_URL);
-     */
-
     $titolo = $opera['Titolo'];
 
 
     $titolo = Validators::required($titolo);
     $autore = Validators::required($opera["Autore"]);
     $immagine = Validators::isUrl($opera["Immagine"]);
-    var_dump($immagine);
+
+
     # risultato della validazione utilizzo per  sapere se posso salvare o no l'opera
     if($titolo !== false && $autore !== false && $immagine !== false){
         $operaCrud = new OperaCRUD();

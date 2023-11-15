@@ -16,3 +16,6 @@ Creare la navigazione tra 4 pagine
 
 
 cls && php ./test/test_import.php
+
+
+ALTER TABLE `museo` ADD `import_url` VARCHAR(255) NULL AFTER `nome`;
