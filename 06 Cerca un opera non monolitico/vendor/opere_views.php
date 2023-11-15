@@ -65,6 +65,9 @@ function opere_table($opere){ ?>
         <tr>
             <td> <?= $opera["Titolo"] ? $opera["Titolo"] : "sconosciuto" ?> </td>
             <td> <?= $opera["Autore"] ? $opera["Autore"] : "sconosciuto" ?> </td>
+         
+            <td>      
+            <a class="btn btn-primary" href="<?= SITE_URL.'/admin/opera_create_form.php?opera_id='.$opera['opera_id'] ?>">  modifica </a> </td>
         </tr>
             
         <?php endforeach; ?>

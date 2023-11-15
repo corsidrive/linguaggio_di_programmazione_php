@@ -4,7 +4,18 @@ require_once(SITE_DIR."/vendor/opere_views.php");
 require_once(SITE_DIR."/vendor/crud/OperaCRUD.php");
 require_once(SITE_DIR."/vendor/Validators.php");
 
-print_r($_POST);
+
+
+$opera_id = filter_input(INPUT_GET,'opera_id',FILTER_SANITIZE_NUMBER_INT);
+var_dump(isset($opera_id));
+
+if(isset($opera_id)){
+    echo "modifica";
+    $operaCRUD = new OperaCRUD();
+    $opera = $operaCRUD->readOne($opera_id);
+
+    var_dump($opera);
+}
 # Valore predefinito
 $titolo = "";
 $autore = "";
@@ -13,6 +24,8 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     
     $opera = $_POST["opera"];
     $titolo = $opera['Titolo'];
+
+
 
 
     $titolo = Validators::required($titolo);
@@ -75,7 +88,7 @@ get_header($page);
     <label for="museo" class="form-label">Museo</label>
     <select name="opera[museo_id]">
             <option value="2" >MAO</option>
-            <option value="3">GAM </option>
+            <option value="3">GAM</option>
     </select>
 </div>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Nov 15, 2023 alle 11:55
+-- Creato il: Nov 15, 2023 alle 12:38
 -- Versione del server: 10.4.28-MariaDB
 -- Versione PHP: 8.2.4
 
@@ -24,40 +24,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `museo`
---
-
-DROP TABLE IF EXISTS `museo`;
-CREATE TABLE `museo` (
-  `museo_id` int(10) NOT NULL,
-  `slug` varchar(255) NOT NULL,
-  `nome` varchar(255) NOT NULL,
-  `import_url` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dump dei dati per la tabella `museo`
---
-
-INSERT INTO `museo` (`museo_id`, `slug`, `nome`, `import_url`) VALUES
-(2, 'mao', 'M.A.O. Museo D\'arte Orientale', NULL),
-(3, 'gam', 'G.A.M. Galleria D\'arte Moderna', NULL);
-
--- --------------------------------------------------------
-
---
 -- Struttura della tabella `opera`
 --
 
 DROP TABLE IF EXISTS `opera`;
 CREATE TABLE `opera` (
   `opera_id` int(10) NOT NULL,
-  `autore` varchar(255) DEFAULT NULL,
-  `titolo` varchar(255) NOT NULL,
-  `datazione` varchar(50) DEFAULT NULL,
-  `tecnica` varchar(50) DEFAULT NULL,
-  `dimensioni` varchar(50) DEFAULT NULL,
-  `immagine` varchar(255) NOT NULL,
+  `Autore` varchar(255) DEFAULT NULL,
+  `Titolo` varchar(255) NOT NULL,
+  `Datazione` varchar(50) DEFAULT NULL,
+  `Tecnica` varchar(50) DEFAULT NULL,
+  `Dimensioni` varchar(50) DEFAULT NULL,
+  `Immagine` varchar(255) NOT NULL,
   `museo_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -65,7 +43,7 @@ CREATE TABLE `opera` (
 -- Dump dei dati per la tabella `opera`
 --
 
-INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `dimensioni`, `immagine`, `museo_id`) VALUES
+INSERT INTO `opera` (`opera_id`, `Autore`, `Titolo`, `Datazione`, `Tecnica`, `Dimensioni`, `Immagine`, `museo_id`) VALUES
 (1, '', 'Vajradhara', 'XV-XVI secolo', 'fusione in bronzo, doratura, pigmenti e turchesi ', '', 'http://93.62.170.226/foto/mao/867_Hb10.jpg', 2),
 (2, '', 'Sitatārā', 'XVI secolo', 'fusione in bronzo, doratura, pigmento e turchesi', '', 'http://93.62.170.226/foto/mao/868_Hb11.jpg', 2),
 (3, '', 'Buddha Śākyamuni', 'XVI secolo', 'fusione in lega di rame, oro freddo e pigmento', '', 'http://93.62.170.226/foto/mao/869_Hb12.jpg', 2),
@@ -395,7 +373,7 @@ INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `di
 (329, '', 'Anfora invetriata con due anse a forma di drago', 'VII secolo - inizio VIII secolo d.C.', 'Terracotta dura bianco-beige con invetriatura ambr', '', 'http://93.62.170.226/foto/mao/1265_Cv02.jpg', 2),
 (330, '', 'Brocca con coperchio a forma di testa di fenice', 'inizio VII secolo d.C.', 'Grès porcellanoso bianco-grigio realizzato a stamp', '', 'http://93.62.170.226/foto/mao/1266_Cv01.jpg', 2),
 (331, '', 'Luohan seduto', 'X secolo d.C. o più tardi', 'terracotta a impasto chiaro, ingobbio bianco, pigm', '', 'http://93.62.170.226/foto/mao/1267_Cc42.jpg', 2);
-INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `dimensioni`, `immagine`, `museo_id`) VALUES
+INSERT INTO `opera` (`opera_id`, `Autore`, `Titolo`, `Datazione`, `Tecnica`, `Dimensioni`, `Immagine`, `museo_id`) VALUES
 (332, '', 'Mascherone portabattente', 'VII-X secolo d.C. (?)', 'terracotta marrone, ingobbio bianco e pigmenti. Re', '', 'http://93.62.170.226/foto/mao/1268_Cc41.jpg', 2),
 (333, '', 'Mascherone portabattente', 'VII-X secolo d.C. (?)', 'terracotta marrone, ingobbio bianco e pigmenti. Re', '', 'http://93.62.170.226/foto/mao/1269_Cc40.jpg', 2),
 (334, '', 'Mascherone', 'VI secolo d.C.', 'terracotta grigia, ingobbio bianco e pigmenti. Rea', '', 'http://93.62.170.226/foto/mao/1270_Cc39.jpg', 2),
@@ -683,7 +661,7 @@ INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `di
 (616, '', 'tazza con ramo di pesco', 'fine XIX sec.', 'Legno laccato; decorazione in oro, argento (?) e p', '', 'http://93.62.170.226/foto/mao/1516_Jl27a.jpg', 2),
 (617, '', 'tazza con ramo di pesco', 'fine XIX sec.', 'Legno laccato; decorazione in oro, argento (?) e p', '', 'http://93.62.170.226/foto/mao/1517_Jl27b.jpg', 2),
 (618, '', 'sakazuki con pavoni e peonie', 'seconda metà XIX sec.', 'Legno laccato, decorazione in oro, argento e madre', '', 'http://93.62.170.226/foto/mao/1518_Jl28.jpg', 2);
-INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `dimensioni`, `immagine`, `museo_id`) VALUES
+INSERT INTO `opera` (`opera_id`, `Autore`, `Titolo`, `Datazione`, `Tecnica`, `Dimensioni`, `Immagine`, `museo_id`) VALUES
 (619, '', 'kobako decorato con un ramo di prugno', 'primo quarto XX sec.', 'Legno laccato, decorazione in oro e argento', '', 'http://93.62.170.226/foto/mao/1519_Jl29.jpg', 2),
 (620, '', 'tazza da toeletta con ornamenti vegetali', 'fine XVIII - inizi XIX sec.', 'Legno laccato, decorazione in oro', '', 'http://93.62.170.226/foto/mao/1524_Jl34.jpg', 2),
 (621, '', 'hagurobako con corolle di crisantemo', 'fine XVII - inizi XVIII sec.', 'Scatola in legno laccato, decorazione in oro', '', 'http://93.62.170.226/foto/mao/1525_Jl35.jpg', 2),
@@ -1013,7 +991,7 @@ INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `di
 (945, '', 'Figura maschile stante acefala', 'I-II secolo d.C.', 'Scisto scolpito a rilievo ', '', 'http://93.62.170.226/foto/mao/1979_2289.jpg', 2),
 (946, '', 'Frammento di figura con veste panneggiata', 'I-II secolo d.C.', 'Scisto scolpito a rilievo ', '', 'http://93.62.170.226/foto/mao/1980_2290.jpg', 2),
 (947, '', 'Buddha stante acefalo', 'I-II secolo d.C.', 'Scisto scolpito a rilievo ', '', 'http://93.62.170.226/foto/mao/1981_2291.jpg', 2);
-INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `dimensioni`, `immagine`, `museo_id`) VALUES
+INSERT INTO `opera` (`opera_id`, `Autore`, `Titolo`, `Datazione`, `Tecnica`, `Dimensioni`, `Immagine`, `museo_id`) VALUES
 (948, '', 'Figura maschile stante', 'I-II secolo d.C.', 'Scisto scolpito a rilievo ', '', 'http://93.62.170.226/foto/mao/1982_2292.jpg', 2),
 (949, '', 'Frammento di figura maschile', 'I-II secolo d.C.', 'Scisto scolpito a rilievo ', '', 'http://93.62.170.226/foto/mao/1983_2293.jpg', 2),
 (950, '', 'Figura maschile acefala', 'I-II secolo d.C.', 'Scisto scolpito a rilievo ', '', 'http://93.62.170.226/foto/mao/1984_2294.jpg', 2),
@@ -1336,7 +1314,7 @@ INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `di
 (1267, '', 'Carpa che risale la cascata', 'fine XVIII sec.', 'inchiostro su seta. Le due estremità del bastone s', '', 'http://93.62.170.226/foto/mao/2322_Jd13.jpg', 2),
 (1268, '', 'Coppia di conigli sotto la luna', 'inizio XIX sec.', 'inchiostro e colori su seta', '', 'http://93.62.170.226/foto/mao/2323_Jd14.jpg', 2),
 (1269, '', 'Falco su un ramo di susino fiorito', 'inizio XIX sec.', 'inchiostro e colori su seta', '', 'http://93.62.170.226/foto/mao/2324_Jd15.jpg', 2);
-INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `dimensioni`, `immagine`, `museo_id`) VALUES
+INSERT INTO `opera` (`opera_id`, `Autore`, `Titolo`, `Datazione`, `Tecnica`, `Dimensioni`, `Immagine`, `museo_id`) VALUES
 (1270, '', 'Tigre su una roccia sotto la pioggia', 'fine XVIII - inizio XIX sec.', 'inchiostro su seta', '', 'http://93.62.170.226/foto/mao/2325_Jd16.jpg', 2),
 (1271, '', 'Tigre rivolta verso sinistra', 'inizio XIX sec.', 'inchiostro su seta. Le due estremità del bastone s', '', 'http://93.62.170.226/foto/mao/2326_Jd17.jpg', 2),
 (1272, '', 'La pineta di Miho e il monte Fuji', 'primo quarto XIX sec.', 'inchiostro su carta', '', 'http://93.62.170.226/foto/mao/2327_Jd18.jpg', 2),
@@ -1639,7 +1617,7 @@ INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `di
 (1569, '', 'Coppia di ornamenti traforati', 'VII-IX secolo d.C. (?)', 'bronzo dorato', '', 'http://93.62.170.226/foto/mao/2615_Cb144.JPG', 2),
 (1570, '', 'Bodhisattva nimbato, stante su alta base', 'VII secolo d.C. (?)', 'bronzo dorato', '', 'http://93.62.170.226/foto/mao/2510_Cs024.jpg', 2),
 (1571, '', 'Fibbia con intarsi e applicazioni di vetro', 'verificare', 'bronzo dorato, vetro applicato e pasta di vetro in', '', 'http://93.62.170.226/foto/mao/2613_Cb145.JPG', 2);
-INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `dimensioni`, `immagine`, `museo_id`) VALUES
+INSERT INTO `opera` (`opera_id`, `Autore`, `Titolo`, `Datazione`, `Tecnica`, `Dimensioni`, `Immagine`, `museo_id`) VALUES
 (1572, '', 'Fibbia ageminata in argento e intarsiata di turchesi', 'IV secolo a.C.', 'bronzo annerito, schegge di turchese, agemina d\'ar', '', 'http://93.62.170.226/foto/mao/2618_Cb146.JPG', 2),
 (1573, '', 'Fibbia sottile ageminata in oro e argento', 'IV-III secolo a.C.', 'bronzo a patina bruna, agemina d\'oro e d\'argento', '', 'http://93.62.170.226/foto/mao/2619_Cb147.JPG', 2),
 (1574, '', 'Fibbia sottile ageminata in argento e oro', 'IV-III secolo a.C.', 'bronzo a patina bruna, agemina d\'argento e d\'oro', '', 'http://93.62.170.226/foto/mao/2620_Cb148.JPG', 2),
@@ -1942,7 +1920,7 @@ INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `di
 (1871, '', 'Fujibakama (Calzoni color glicine)', 'metà XIX secolo', 'silografia nishiki-e', '', 'http://93.62.170.226/foto/mao/2940_Jx230-Fujibakama.jpg', 2),
 (1872, '', 'Makibashira ', 'metà XIX secolo', 'silografia nishiki-e', '', 'http://93.62.170.226/foto/mao/2941_Jx231-Makibashira.jpg', 2),
 (1873, '', 'Umegae (Il ramo di fior di susino) ', 'metà XIX secolo', 'silografia nishiki-e', '', 'http://93.62.170.226/foto/mao/2942_Jx232-Umegae-E.jpg', 2);
-INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `dimensioni`, `immagine`, `museo_id`) VALUES
+INSERT INTO `opera` (`opera_id`, `Autore`, `Titolo`, `Datazione`, `Tecnica`, `Dimensioni`, `Immagine`, `museo_id`) VALUES
 (1874, '', 'Fuji no uraba (Foglioline di glicine novelle) ', 'metà XIX secolo', 'silografia nishiki-e', '', 'http://93.62.170.226/foto/mao/2943_Jx233-Fuji-no-Uraba.jpg', 2),
 (1875, '', 'Wakana no jō (“Giovani Germogli” parte prima) ', 'metà XIX secolo', 'silografia nishiki-e', '', 'http://93.62.170.226/foto/mao/2944_Jx234-Wakana-no-jo.jpg', 2),
 (1876, '', 'Kashiwagi', 'metà XIX secolo', 'silografia nishiki-e', '', 'http://93.62.170.226/foto/mao/2945_Jx236-Kashiwagi.jpg', 2),
@@ -2252,7 +2230,7 @@ INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `di
 (2180, '', 'I monaci zen Kanzan e Jittoku', 'fine XVI - inizio XVII sec.', 'inchiostro su carta', '', 'http://93.62.170.226/foto/mao/2309_Jd03b.jpg', 2),
 (2181, '', 'Daruma con veste rossa e iscrizione calligrafica', 'XVII sec.', 'inchiostro e colori su seta indaco. Le due estremi', '', 'http://93.62.170.226/foto/mao/2309_Jd04.jpg', 2),
 (2182, '', 'Daruma e iscrizione calligrafica', 'fine XVIII sec.', 'inchiostro su carta', '', 'http://93.62.170.226/foto/mao/2311_Jd05.jpg', 2);
-INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `dimensioni`, `immagine`, `museo_id`) VALUES
+INSERT INTO `opera` (`opera_id`, `Autore`, `Titolo`, `Datazione`, `Tecnica`, `Dimensioni`, `Immagine`, `museo_id`) VALUES
 (2183, '', 'inrō con prugno fiorito e luna piena', 'XVIII secolo', 'Legno laccato e dorato, decorazione in madreperla ', '', 'http://93.62.170.226/foto/mao/1465_Ja17.jpg', 2),
 (2184, '', 'inrō con due personaggi in un giardino', 'fine XVIII - inizi XIX sec.', 'Legno laccato e dorato, decorazione in oro, argent', '', 'http://93.62.170.226/foto/mao/1466_Ja18.jpg', 2),
 (2185, '', 'inrō con airone e arcata di un ponte', 'fine XVII - inizi XVIII sec.', 'Legno laccato e dorato; decorazione in madreperla,', '', 'http://93.62.170.226/foto/mao/1467_Ja19.jpg', 2),
@@ -2559,7 +2537,7 @@ INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `di
 (2486, '', 'Vaso con corto collo espanso e base appiattita', 'ca. 1200-950 a.C.', 'Terracotta beige con decorazione bicolore dipinta ', '', 'http://93.62.170.226/foto/mao/1385_Cn22.jpg', 2),
 (2487, '', 'Vaso a due anse e collo alto', 'ca. 1200-950 a.C', 'Terracotta beige con decorazione dipinta in nero s', '', 'http://93.62.170.226/foto/mao/1386_Cn21.jpg', 2),
 (2488, '', 'Vaso a due anse e collo alto', 'ca. 1200-950 a.C.', 'Terracotta beige con decorazione dipinta in nero s', '', 'http://93.62.170.226/foto/mao/1387_Cn20.jpg', 2);
-INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `dimensioni`, `immagine`, `museo_id`) VALUES
+INSERT INTO `opera` (`opera_id`, `Autore`, `Titolo`, `Datazione`, `Tecnica`, `Dimensioni`, `Immagine`, `museo_id`) VALUES
 (2489, '', 'Giara carenata a due anse e collo alto', 'ca. 1200-950 a.C.', 'Terracotta beige rosata con decorazione bicolore d', '', 'http://93.62.170.226/foto/mao/1388_Cn19.jpg', 2),
 (2490, '', 'Giara a collo antropomorfo', 'ca. 2300-1950 a.C.', 'Terracotta beige con decorazione dipinta in nero s', '', 'http://93.62.170.226/foto/mao/1389_Cn18.jpg', 2),
 (2491, '', 'Bacile a due anse', 'ca. 3350-2650 a.C.', 'Terracotta arancione con decorazione dipinta in ne', '', 'http://93.62.170.226/foto/mao/1390_Cn17.jpg', 2),
@@ -2869,7 +2847,7 @@ INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `di
 (2795, '', 'Funzionario in udienza', 'seconda metà VII sec. d.C.', 'Terracotta chiara modellata a stampo, ingobbio e p', '', 'http://93.62.170.226/foto/mao/1722_Cc90.jpg', 2),
 (2796, '', 'Personaggio maschile a cavallo', 'seconda metà VII sec. d.C.', 'Terracotta chiara modellata a stampo, ingobbio e p', '', 'http://93.62.170.226/foto/mao/1723_Cc_81.jpg', 2),
 (2797, '', 'Donna di corte con borsa', 'seconda metà VII sec. d.C.', 'Terracotta chiara modellata a stampo, ingobbio e p', '', 'http://93.62.170.226/foto/mao/1720_Cc80.jpg', 2);
-INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `dimensioni`, `immagine`, `museo_id`) VALUES
+INSERT INTO `opera` (`opera_id`, `Autore`, `Titolo`, `Datazione`, `Tecnica`, `Dimensioni`, `Immagine`, `museo_id`) VALUES
 (2798, '', 'Donna di corte con borsa', 'seconda metà VII sec. d.C.', 'Terracotta chiara modellata a stampo, ingobbio e p', '', 'http://93.62.170.226/foto/mao/1722_Cc83.jpg', 2),
 (2799, '', 'Guerriero corazzato', 'seconda metà VII sec. d.C.', 'Terracotta chiara modellata a stampo, ingobbio e p', '', 'http://93.62.170.226/foto/mao/1731_Cc_92.jpg', 2),
 (2800, '', 'Funzionario in udienza', 'seconda metà VII sec. d.C.', 'Terracotta chiara modellata a stampo, ingobbio e p', '', 'http://93.62.170.226/foto/mao/1722_Cc89.jpg', 2),
@@ -3191,7 +3169,7 @@ INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `di
 (3116, '', 'Pugnale con antenne a teste di uccelli', 'VI-V secolo a.C.', 'bronzo ambrato a patina verde-nera', '', 'http://93.62.170.226/foto/mao/2106_Cb53.jpg', 2),
 (3117, '', 'Pugnale con manico troncoconico decorato', 'VI-V secolo a.C.', 'bronzo a patina argenetea e verde', '', 'http://93.62.170.226/foto/mao/2107_Cb54.jpg', 2),
 (3118, '', 'Spada e fodero', 'fine VI - IV secolo a.C.', 'bronzo a patina marrone scuro e lama giallo-oro; f', '', 'http://93.62.170.226/foto/mao/2108_Cb55.jpg', 2);
-INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `dimensioni`, `immagine`, `museo_id`) VALUES
+INSERT INTO `opera` (`opera_id`, `Autore`, `Titolo`, `Datazione`, `Tecnica`, `Dimensioni`, `Immagine`, `museo_id`) VALUES
 (3119, '', 'Spada con impugnatura a cordicelle intrecciate e fodero', 'IV secolo a.C.', 'bronzo a patina nera, cordicelle di seta colorata;', '', 'http://93.62.170.226/foto/mao/2109_Cb56.jpg', 2),
 (3120, '', 'Spada con elsa decorata', 'V-IV secolo a.C.', 'bronzo a patina nera e lama giallo-oro; incastonat', '', 'http://93.62.170.226/foto/mao/2110_Cb57.jpg', 2),
 (3121, '', 'Lama di spada', 'IV-III secolo a.C.', 'bronzo a patina nera con sfumature gialle e decora', '', 'http://93.62.170.226/foto/mao/2111_Cb58.jpg', 2),
@@ -3503,7 +3481,7 @@ INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `di
 (3427, '', 'Cuculo (hototogisu) e luna di primavera', 'terzo quarto XIX sec.', 'inchiostro e colori tenui su carta', '', 'http://93.62.170.226/foto/mao/2437_Jv03.jpg', 2),
 (3428, '', 'Rondine e salice piangente', 'metà XVIII sec.', 'inchiostro e colori tenui su carta', '', 'http://93.62.170.226/foto/mao/2438_Jv04.jpg', 2),
 (3429, '', 'Paesaggio con barcaiolo', 'metà XIX sec.', 'inchiostro su carta', '', 'http://93.62.170.226/foto/mao/2439_Jv05.jpg', 2);
-INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `dimensioni`, `immagine`, `museo_id`) VALUES
+INSERT INTO `opera` (`opera_id`, `Autore`, `Titolo`, `Datazione`, `Tecnica`, `Dimensioni`, `Immagine`, `museo_id`) VALUES
 (3430, '', 'Crisantemi e iscrizione calligrafica', 'primo quarto XIX sec.', 'inchiostro su carta', '', 'http://93.62.170.226/foto/mao/2440_Jv06.jpg', 2),
 (3431, '', 'Fiori ed erbe autunnali', 'primo quarto XIX sec.', 'inchiostro su carta', '', 'http://93.62.170.226/foto/mao/2441_Jv07.jpg', 2),
 (3432, '', 'Corvi in volo in un cielo dorato', 'metà XIX sec.', 'fondo dorato, polvere d\'oro e inchiostro su carta', '', 'http://93.62.170.226/foto/mao/2442_Jv08.jpg', 2),
@@ -3813,7 +3791,7 @@ INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `di
 (3736, '', 'Danzatrice', 'II secolo a.C. (?)', 'terracotta grigia, ingobbio bianco e pigmenti poli', '', 'http://93.62.170.226/foto/mao/2738_Cc152.jpg', 2),
 (3737, '', 'Servitore stante', 'II-I secolo a.C.', 'terracotta grigia, ingobbio bianco e pigmenti', '', 'http://93.62.170.226/foto/mao/2753_Cc153a.jpg', 2),
 (3738, '', 'Servitrice stante', 'II-I secolo a.C.', 'terracotta grigia, ingobbio bianco e pigmenti', '', 'http://93.62.170.226/foto/mao/2754_Cc153b.jpg', 2);
-INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `dimensioni`, `immagine`, `museo_id`) VALUES
+INSERT INTO `opera` (`opera_id`, `Autore`, `Titolo`, `Datazione`, `Tecnica`, `Dimensioni`, `Immagine`, `museo_id`) VALUES
 (3739, '', 'Servitrice inginocchiata', 'II-I secolo a.C.', 'terracotta grigia, ingobbio bianco e pigmenti', '', 'http://93.62.170.226/foto/mao/2755_Cc154a.jpg', 2),
 (3740, '', 'Servitrice inginocchiata', 'II-I secolo a.C.', 'terracotta grigia, ingobbio bianco e pigmenti', '', 'http://93.62.170.226/foto/mao/2756_Cc154b.jpg', 2),
 (3741, '', 'Servitore stante', 'II secolo a.C. (?)', 'terracotta grigia, ingobbio bianco e pigmenti', '', 'http://93.62.170.226/foto/mao/2756_Cc155a.jpg', 2),
@@ -4112,7 +4090,7 @@ INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `di
 (4034, '', 'Stele con triade buddhista', 'secondo quarto VI secolo d.C. (?)', 'pietra bruna-verdastra', '', 'http://93.62.170.226/foto/mao/3097_Cs027.jpg', 2),
 (4035, '', 'xxxx', '', '', '', 'http://93.62.170.226/foto/mao/2986_ISb_1-particolare-1.jpg', 2),
 (4036, '', 'Giocatore di polo straniero', 'VIII secolo d.C.', 'terracotta rossa, pigmenti stesi a freddo', '', 'http://93.62.170.226/foto/mao/3085_Cc248.jpg', 2);
-INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `dimensioni`, `immagine`, `museo_id`) VALUES
+INSERT INTO `opera` (`opera_id`, `Autore`, `Titolo`, `Datazione`, `Tecnica`, `Dimensioni`, `Immagine`, `museo_id`) VALUES
 (4037, '', 'Anziano palafreniere straniero', 'fine VII - prima metà VIII secolo d.C. (?)', 'terracotta beige; pigmenti nero, rosa, bianco ed a', '', 'http://93.62.170.226/foto/mao/3071_Cc249.jpg', 2),
 (4038, '', 'Busto di monaco buddhista', 'IX-X secolo d.C. (?)', 'impasto di argilla, paglia (e tessuto?), stucco e ', '', 'http://93.62.170.226/foto/mao/3071_Cs025.jpg', 2),
 (4039, '', 'Funzionario in udienza', 'VII secolo d.C.', 'terracotta bianca, ingobbio traslucido e pigmenti ', '', 'http://93.62.170.226/foto/mao/3056_Cc250a.jpg', 2),
@@ -4172,12 +4150,6 @@ INSERT INTO `opera` (`opera_id`, `autore`, `titolo`, `datazione`, `tecnica`, `di
 --
 
 --
--- Indici per le tabelle `museo`
---
-ALTER TABLE `museo`
-  ADD PRIMARY KEY (`museo_id`);
-
---
 -- Indici per le tabelle `opera`
 --
 ALTER TABLE `opera`
@@ -4186,12 +4158,6 @@ ALTER TABLE `opera`
 --
 -- AUTO_INCREMENT per le tabelle scaricate
 --
-
---
--- AUTO_INCREMENT per la tabella `museo`
---
-ALTER TABLE `museo`
-  MODIFY `museo_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT per la tabella `opera`
