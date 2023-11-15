@@ -3,7 +3,8 @@
 // echo __DIR__ ."<br>";
 
 define("SITE_DIR",__DIR__);
-define("SITE_URL","http://localhost:3000/06 Cerca un opera non monolitico");
+// define("SITE_URL","http://localhost:3000/06 Cerca un opera non monolitico");
+define("SITE_URL","http://localhost:3000");
 
 # miosito.it , lastampa.com
 #               http://localhost:3000/06%20Cerca%20un%20opera%20non%20monolitico/admin/opera_create_form.php

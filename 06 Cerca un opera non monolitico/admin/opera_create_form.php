@@ -4,8 +4,7 @@ require_once(SITE_DIR."/vendor/opere_views.php");
 require_once(SITE_DIR."/vendor/crud/OperaCRUD.php");
 require_once(SITE_DIR."/vendor/Validators.php");
 
-print_r($_SERVER['REQUEST_METHOD']);
-
+print_r($_POST);
 # Valore predefinito
 $titolo = "";
 $autore = "";
@@ -27,7 +26,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     $titolo = Validators::required($titolo);
     $autore = Validators::required($opera["Autore"]);
     $immagine = Validators::isUrl($opera["Immagine"]);
-    
+    var_dump($immagine);
     # risultato della validazione utilizzo per  sapere se posso salvare o no l'opera
     if($titolo !== false && $autore !== false && $immagine !== false){
         $operaCrud = new OperaCRUD();
@@ -72,7 +71,7 @@ get_header($page);
 <div class="mb-3">
     <label for="immagine" class="form-label">Immagine</label>
     <input type="text" value="<?= $immagine ?>" class="form-control" name="opera[Immagine]" id="immagine">
-    <?= $immagine == false ? "<strong class='text-danger'>L'url dell' immagine è sbagliata </strong>":"" ?>
+    <?= $immagine === false ? "<strong class='text-danger'>L'url dell' immagine è sbagliata </strong>":"" ?>
 </div>
 <div class="mb-3">
     <label for="dimensioni" class="form-label">Dimensioni</label>

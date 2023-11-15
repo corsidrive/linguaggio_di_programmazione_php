@@ -24,7 +24,7 @@ class Validators {
         if($is_required && strlen($value) === 0 ){
             return false;
         }else{
-           return filter_var($value, FILTER_VALIDATE_URL);   
+           return $value == "" ? "" : filter_var($value, FILTER_VALIDATE_URL);   
         }; 
 
            
