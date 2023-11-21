@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Nov 21, 2023 alle 09:43
+-- Creato il: Nov 21, 2023 alle 13:06
 -- Versione del server: 10.4.28-MariaDB
 -- Versione PHP: 8.2.4
 
@@ -56,9 +56,9 @@ CREATE TABLE `opera` (
   `opera_id` int(10) NOT NULL,
   `Autore` varchar(255) DEFAULT NULL,
   `Titolo` varchar(255) NOT NULL,
-  `Datazione` varchar(50) DEFAULT NULL,
-  `Tecnica` varchar(50) DEFAULT NULL,
-  `Dimensioni` varchar(50) DEFAULT NULL,
+  `Datazione` varchar(255) DEFAULT NULL,
+  `Tecnica` varchar(255) DEFAULT NULL,
+  `Dimensioni` varchar(255) DEFAULT NULL,
   `Immagine` varchar(255) NOT NULL,
   `museo_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -72,7 +72,7 @@ INSERT INTO `opera` (`opera_id`, `Autore`, `Titolo`, `Datazione`, `Tecnica`, `Di
 (2, '', 'Sitatārā', 'XVI secolo', 'fusione in bronzo, doratura, pigmento e turchesi', '', 'http://93.62.170.226/foto/mao/868_Hb11.jpg', 2),
 (3, '', 'Buddha Śākyamuni', 'XVI secolo', 'fusione in lega di rame, oro freddo e pigmento', '', 'http://93.62.170.226/foto/mao/869_Hb12.jpg', 2),
 (4, '', 'Amitāyus', 'XVII secolo, seconda metà', 'fusione in lega di rame, doratura e pietre semipre', '', 'http://93.62.170.226/foto/mao/870_Hb13.jpg', 2),
-(5, '', 'Guhyasamāja Mañjuvajra', 'XVIII secolo', 'fusione in lega di rame, doratura e pigmenti', '', 'http://93.62.170.226/foto/mao/871_Hb14.jpg', 2),
+(5, '', 'Guhyasamāja Mañjuvajra', '', 'fusione in lega di rame, doratura e pigmenti', '', 'http://93.62.170.226/foto/mao/871_Hb14.jpg', 2),
 (6, '', 'Vajrahumkara', 'XVIII secolo', 'fusione in lega di rame, parziale doratura, tracce', '', 'http://93.62.170.226/foto/mao/872_Hb15.jpg', 2),
 (7, '', 'Mahācakra Vajrapāṇi', 'XVIII secolo', 'fusione in lega di rame, parziale doratura, pigmen', '', 'http://93.62.170.226/foto/mao/873_873_Hb16.jpg', 2),
 (8, '', 'Dam-can rDo-rje-legs-pa', 'XVIII secolo', 'fusione di lega in rame, doratura a fuoco e pigmen', '', 'http://93.62.170.226/foto/mao/874_Hb17.jpg', 2),

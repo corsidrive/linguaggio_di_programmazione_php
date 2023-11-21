@@ -76,8 +76,24 @@ class OperaCRUD {
         // return $result[0] ?? false;
     }
 
-    public function readAll(){
-        $query = "SELECT * FROM opera;";
+    /** 
+     * @example
+     * $crud->readAll();
+     * $crud->readAll(10);
+     * $crud->readAll(20,10);
+     * @param int $to fino a quanti record devo estrarre 
+     * @param int $from da che numero ...
+     */
+    public function readAll($to=null,$from=null){
+        $limit = "";
+        if(!is_null($to) && is_null($from)){
+            $limit = " LIMIT $to";
+        } 
+        if(!is_null($to) && !is_null($from)){
+            $limit = " LIMIT $from,$to";
+        }
+        $query = "SELECT * FROM opera $limit;";
+        echo $query;
         $pdo_stm = $this->conn->prepare($query);
         $pdo_stm->execute();
         
@@ -94,12 +110,12 @@ class OperaCRUD {
     // NOTE forse opera_id non serve
     public function update($opera)  {
 
-        $autore = $opera["autore"];
-        $titolo = $opera["titolo"];
-        $datazione = $opera["datazione"];
-        $tecnica = $opera["tecnica"];
-        $dimensioni = $opera["dimensioni"];
-        $immagine = $opera["immagine"];
+        $autore = $opera["Autore"];
+        $titolo = $opera["Titolo"];
+        $datazione = $opera["Datazione"];
+        $tecnica = $opera["Tecnica"];
+        $dimensioni = $opera["Dimensioni"];
+        $immagine = $opera["Immagine"];
         $museo_id = $opera["museo_id"];
         $opera_id = $opera["opera_id"];
 
