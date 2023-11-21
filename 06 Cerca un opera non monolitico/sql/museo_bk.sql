@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Nov 21, 2023 alle 09:36
+-- Creato il: Nov 21, 2023 alle 09:43
 -- Versione del server: 10.4.28-MariaDB
 -- Versione PHP: 8.2.4
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `museo`
 --
+CREATE DATABASE IF NOT EXISTS `museo` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `museo`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Struttura della tabella `museo`
 --
 
+DROP TABLE IF EXISTS `museo`;
 CREATE TABLE `museo` (
   `museo_id` int(10) NOT NULL,
   `slug` varchar(255) NOT NULL,
@@ -48,6 +51,7 @@ INSERT INTO `museo` (`museo_id`, `slug`, `nome`, `import_url`) VALUES
 -- Struttura della tabella `opera`
 --
 
+DROP TABLE IF EXISTS `opera`;
 CREATE TABLE `opera` (
   `opera_id` int(10) NOT NULL,
   `Autore` varchar(255) DEFAULT NULL,
