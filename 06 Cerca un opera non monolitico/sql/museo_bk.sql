@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Nov 15, 2023 alle 12:38
+-- Creato il: Nov 21, 2023 alle 09:36
 -- Versione del server: 10.4.28-MariaDB
 -- Versione PHP: 8.2.4
 
@@ -24,10 +24,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `museo`
+--
+
+CREATE TABLE `museo` (
+  `museo_id` int(10) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `import_url` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `museo`
+--
+
+INSERT INTO `museo` (`museo_id`, `slug`, `nome`, `import_url`) VALUES
+(2, 'mao', 'M.A.O. Museo D\'arte Orientale', NULL),
+(3, 'gam', 'G.A.M. Galleria D\'arte Moderna', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `opera`
 --
 
-DROP TABLE IF EXISTS `opera`;
 CREATE TABLE `opera` (
   `opera_id` int(10) NOT NULL,
   `Autore` varchar(255) DEFAULT NULL,
@@ -4150,6 +4170,12 @@ INSERT INTO `opera` (`opera_id`, `Autore`, `Titolo`, `Datazione`, `Tecnica`, `Di
 --
 
 --
+-- Indici per le tabelle `museo`
+--
+ALTER TABLE `museo`
+  ADD PRIMARY KEY (`museo_id`);
+
+--
 -- Indici per le tabelle `opera`
 --
 ALTER TABLE `opera`
@@ -4158,6 +4184,12 @@ ALTER TABLE `opera`
 --
 -- AUTO_INCREMENT per le tabelle scaricate
 --
+
+--
+-- AUTO_INCREMENT per la tabella `museo`
+--
+ALTER TABLE `museo`
+  MODIFY `museo_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT per la tabella `opera`
