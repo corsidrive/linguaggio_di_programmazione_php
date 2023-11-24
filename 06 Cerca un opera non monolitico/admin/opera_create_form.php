@@ -9,16 +9,17 @@ $operaObj = new stdClass();
 $operaObj->titolo = "";
 $operaObj->autore = "";
 $operaObj->immagine = "";
+$operaObj->datatazione = "";
 
 
 if($_SERVER['REQUEST_METHOD']=="POST"){
     
-    $opera = $_POST["opera"];
+    $opera = $_POST["opera"]; // Dal Form
     
     $operaObj->titolo = Validators::required($opera['Titolo']);
     // $autore = Validators::required($opera["Autore"]);
     $operaObj->immagine = Validators::isUrl($opera["Immagine"]);
-
+    $operaObj->datatazione = Validators::cleanData($opera['Datazione']);
 
     # risultato della validazione utilizzo per  sapere se posso salvare o no l'opera
     if($operaObj->titolo !== false && $operaObj->autore !== false && $operaObj->immagine !== false){

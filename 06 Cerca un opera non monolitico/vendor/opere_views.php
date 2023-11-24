@@ -100,10 +100,17 @@ function opere_table($opere){ ?>
     <input type="text" value="<?php echo $opera->autore ?>" class="form-control" name="opera[Autore]" id="autore">
     <?= $opera->autore === false ?  "<strong class='text-danger'>L'autore è obbligatorio</strong>" : "" ?>
 </div>
+
+
 <div class="mb-3">
-    <label for="datazione" class="form-label">datazione dell'opera</label>
-    <input type="text" class="form-control" name="opera[Datazione]" id="datazione">
+    <label for="datazione"  class="form-label">datazione dell'opera</label>
+    <input type="text" 
+    value="<?= $opera->datatazione  ?>"   
+    class="form-control" name="opera[Datazione]" id="datazione">
+
 </div>
+
+
 <div class="mb-3">
     <label for="tecnica" class="form-label">Tecnica</label>
     <input type="text" value="<?= $opera->tecnica ?>" class="form-control" name="opera[Tecnica]" id="tecnica">
