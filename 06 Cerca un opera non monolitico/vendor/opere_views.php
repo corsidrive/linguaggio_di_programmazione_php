@@ -79,6 +79,60 @@ function opere_table($opere){ ?>
 
 <?php } ?>
 
+<?php function get_opera_form($page,stdClass $opera) { ?>
+
+    
+<form action="<?= $page['page__action']  ?>" method="post">
+<div class="mb-3">
+
+    <input type="hidden" name="opera[opera_id]" value="<?= $opera->opera_id ?? "" ?>" >
+    
+    <label for="titolo"  class="form-label">Titolo dell'opera</label>
+    <input type="text"  value="<?= $opera->titolo ?>" class="form-control" name="opera[Titolo]" id="titolo">
+    <?php 
+    if($opera->titolo === false) {
+        echo "<strong class='text-danger'>Il titolo è obbligatorio</strong>";
+    } 
+    ?> 
+</div>
+<div class="mb-3">
+    <label for="autore" class="form-label">Autore dell'opera</label>
+    <input type="text" value="<?php echo $opera->autore ?>" class="form-control" name="opera[Autore]" id="autore">
+    <?= $opera->autore === false ?  "<strong class='text-danger'>L'autore è obbligatorio</strong>" : "" ?>
+</div>
+<div class="mb-3">
+    <label for="datazione" class="form-label">datazione dell'opera</label>
+    <input type="text" class="form-control" name="opera[Datazione]" id="datazione">
+</div>
+<div class="mb-3">
+    <label for="tecnica" class="form-label">Tecnica</label>
+    <input type="text" value="<?= $opera->tecnica ?>" class="form-control" name="opera[Tecnica]" id="tecnica">
+</div>
+<div class="mb-3">
+    <label for="immagine" class="form-label">Immagine</label>
+    <input type="text" value="<?= $opera->immagine ?>" class="form-control" name="opera[Immagine]" id="immagine">
+    <?= $opera->immagine === false ? "<strong class='text-danger'>L'url dell' immagine è sbagliata </strong>":"" ?>
+</div>
+<div class="mb-3">
+    <label for="dimensioni" class="form-label">Dimensioni</label>
+    <input type="text" class="form-control" name="opera[Dimensioni]" id="dimensioni">
+</div>
+
+<div class="mb-3">
+    <label for="museo" class="form-label">Museo</label>
+    <select name="opera[museo_id]">
+            <option value="2" >MAO</option>
+            <option value="3">GAM</option>
+    </select>
+</div>
+
+<button type="submit">salva</button>
+
+</form>
+    
+
+<?php } ?>
+
 <?php function get_footer($data) { ?>
     </div>
  </main>
@@ -90,6 +144,8 @@ function opere_table($opere){ ?>
 </body>
 </html>
 <?php } ?>
+
+
 
 
 
