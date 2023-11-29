@@ -6,8 +6,7 @@ class OperaCRUD {
     public function __construct() {
         
         try {
-            $this->conn = new PDO("mysql:host=localhost;dbname=museo","root",""); // ERRORE
-        
+            $this->conn = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASSWORD); // ERRORE
         } catch (\PDOException $exc) {
             
             echo $exc->getMessage()."\n"; 

@@ -17,6 +17,10 @@ define("SITE_URL","http://localhost:3000/06%20Cerca%20un%20opera%20non%20monolit
 
 define("DB_HOST","localhost");
 define("DB_NAME","museo");
+define("DB_USER","root");
+define("DB_PASSWORD","");
+
+
 
 define("MAIL_USER","ciccio");
 
