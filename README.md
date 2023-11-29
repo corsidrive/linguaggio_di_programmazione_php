@@ -1,22 +1,22 @@
 # Da FARE 
 
-Prendere come riferimento la documentazione di bootstrap
-e utilizzare la navbar 
+// $museiCrud->readAll();
 
-- https://www.w3schools.com/bootstrap/bootstrap_navbar.asp
-- https://getbootstrap.com/docs/5.3/components/navbar/
-
-
-Creare la navigazione tra 4 pagine 
-
-- pagina di ricerca
-    - pagina del risultato della ricerca 
-    
-- pagina con tutte le opere del MAO
-- pagina con tutte le opere della GAM 
+<a href="museo.it/opera_search?museo_id=;DROP%20TABLE%20opere;">Mao</a>
+<a href="museo.it/opera_search?museo_id=3">GAM</a>
+<a href="museo.it/opera_search?museo_id=5">Gabino</a>
 
 
-cls && php ./test/test_import.php
+<a href="museo.it/opera_edit_form?opera_id=2">Modifica</a>
+
+OpereCrud->readByMuseoId(2);
 
 
-ALTER TABLE `museo` ADD `import_url` VARCHAR(255) NULL AFTER `nome`;
+
+Opere::search([
+    "museo_id" => 1,
+    "titlo" => "C"
+])
+
+SELECT ...
+... where museo_id = :museo_id // 2
