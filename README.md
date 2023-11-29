@@ -7,6 +7,9 @@
 <a href="museo.it/opera_search?museo_id=5">Gabino</a>
 
 
+<a href="museo.it/opera_search?museo_id=2&page=5">Gabino</a>
+
+
 <a href="museo.it/opera_edit_form?opera_id=2">Modifica</a>
 
 OpereCrud->readByMuseoId(2);
