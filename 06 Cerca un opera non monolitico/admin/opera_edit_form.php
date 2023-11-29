@@ -22,7 +22,10 @@ if(isset($opera_id) && $_SERVER['REQUEST_METHOD'] === 'GET'){
     $operaObj->autore = $opera['Autore'];
     $operaObj->immagine = $opera['Immagine'];
     $operaObj->tecnica = $opera['Tecnica'];
-
+    $operaObj->datazione = $opera['Datazione'];
+    $operaObj->dimensioni = $opera['Dimensioni'];
+    $operaObj->museo_id = $opera['museo_id'];
+    $operaObj->opera_id = $opera['opera_id'];
 }
 
 
@@ -39,12 +42,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $operaObj->immagine = $opera['Immagine'];
     $operaObj->tecnica = $opera['Tecnica'];
     $operaObj->titolo = $opera['Titolo'];
+    $operaObj->datazione = $opera['Datazione'];
+    $operaObj->dimensioni = $opera['Dimensioni'];
+    $operaObj->museo_id = $opera['museo_id'];
+    $operaObj->opera_id = $opera['opera_id'];
 
     $operaObj->titolo = Validators::required($opera['Titolo']);
     // $autore = Validators::required($opera["Autore"]);
     $operaObj->immagine = Validators::isUrl($opera["Immagine"]);
 
     if($operaObj->titolo !== false && $operaObj->autore !== false && $operaObj->immagine !== false){
+
         $operaCrud = new OperaCRUD();
         $operaCrud->update($opera);
     }

@@ -65,6 +65,7 @@ function opere_table($opere){ ?>
         <tr>
             <td> <?= $opera["Titolo"] ? $opera["Titolo"] : "sconosciuto" ?> </td>
             <td> <?= $opera["Autore"] ? $opera["Autore"] : "sconosciuto" ?> </td>
+            <td> <?= $opera["opera_id"] ? $opera["Autore"] : "sconosciuto" ?> </td>
          
             <td>
             <a class="btn btn-primary" href="<?= SITE_URL.'/admin/opera_edit_form.php?opera_id='.$opera['opera_id'] ?>">  modifica </a> </td>
@@ -81,11 +82,11 @@ function opere_table($opere){ ?>
 
 <?php function get_opera_form($page,stdClass $opera) { ?>
 
-    
+   <!-- <?php  print_r($opera) ?> -->
 <form action="<?= $page['page__action']  ?>" method="post">
 <div class="mb-3">
 
-    <input type="hidden" name="opera[opera_id]" value="<?= $opera->opera_id ?? "" ?>" >
+    <input type="text" name="opera[opera_id]" value="<?= $opera->opera_id ?? "" ?>" >
     
     <label for="titolo"  class="form-label">Titolo dell'opera</label>
     <input type="text"  value="<?= $opera->titolo ?>" class="form-control" name="opera[Titolo]" id="titolo">
@@ -105,7 +106,7 @@ function opere_table($opere){ ?>
 <div class="mb-3">
     <label for="datazione"  class="form-label">datazione dell'opera</label>
     <input type="text" 
-    value="<?= $opera->datatazione  ?>"   
+    value="<?= $opera->datazione  ?>"   
     class="form-control" name="opera[Datazione]" id="datazione">
 
 </div>
@@ -117,19 +118,21 @@ function opere_table($opere){ ?>
 </div>
 <div class="mb-3">
     <label for="immagine" class="form-label">Immagine</label>
-    <input type="text" value="<?= $opera->immagine ?>" class="form-control" name="opera[Immagine]" id="immagine">
+    <input type="text" value="<?= $opera->immagine; ?>" class="form-control" name="opera[Immagine]" id="immagine">
     <?= $opera->immagine === false ? "<strong class='text-danger'>L'url dell' immagine è sbagliata </strong>":"" ?>
 </div>
 <div class="mb-3">
-    <label for="dimensioni" class="form-label">Dimensioni</label>
-    <input type="text" class="form-control" name="opera[Dimensioni]" id="dimensioni">
+    <label for="dimensioni"  class="form-label">Dimensioni</label>
+    <input type="text" value="<?= $opera->dimensioni; ?>" class="form-control" name="opera[Dimensioni]" id="dimensioni">
 </div>
 
 <div class="mb-3">
     <label for="museo" class="form-label">Museo</label>
     <select name="opera[museo_id]">
-            <option value="2" >MAO</option>
-            <option value="3">GAM</option>
+
+            <option  >Scegli il museo</option>
+            <option value="3" <?= $opera->museo_id == "3" ? "selected" : ""  ?>  >GAM</option>
+            <option value="2" <?= $opera->museo_id == 2 ? "selected" : "" ?> >MAO</option>
     </select>
 </div>
 

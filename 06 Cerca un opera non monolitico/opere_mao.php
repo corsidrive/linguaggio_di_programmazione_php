@@ -6,7 +6,8 @@ require_once "./vendor/opere_views.php";
 require_once SITE_DIR."/vendor/crud/OperaCRUD.php";
 
 $operaCRUD = new OperaCRUD();
-$opere = $operaCRUD->readAll(6,4);
+// $opere = $operaCRUD->readAll(10);
+$opere = $operaCRUD->readByMuseoId(2,10);
 // $opere = ottieni_opere("https://gestione.fondazionetorinomusei.it/media/opendata/COLLEZIONI_MAO.jos.json");
 
 $page['slug'] = 'mao';

@@ -80,20 +80,26 @@ class OperaCRUD {
      * $crud->readAll();
      * $crud->readAll(10);
      * $crud->readAll(20,10);
+     * @see https://www.w3schools.com/mysql/mysql_limit.asp
      * @param int $to fino a quanti record devo estrarre 
      * @param int $from da che numero ...
      */
     public function readAll($to=null,$from=null){
         $limit = "";
+
+        // @example $crud->readAll(10);
         if(!is_null($to) && is_null($from)){
             $limit = " LIMIT $to";
         } 
+
+        //  $crud->readAll(20,10);
         if(!is_null($to) && !is_null($from)){
             $limit = " LIMIT $from,$to";
         }
         $query = "SELECT * FROM opera $limit;";
         echo $query;
         $pdo_stm = $this->conn->prepare($query);
+        
         $pdo_stm->execute();
         
         // $res = $pdo_stm->fetchAll(PDO::FETCH_ASSOC);
@@ -106,6 +112,25 @@ class OperaCRUD {
     } 
 
 
+    public function readByMuseoId($museo_id,$to=null,$from=null){
+        $limit="";
+        
+        if(!is_null($to) && is_null($from)){
+            $limit = " LIMIT $to";
+        } 
+
+        //  $crud->readAll(20,10);
+        if(!is_null($to) && !is_null($from)){
+            $limit = " LIMIT $from,$to";
+        }
+
+        $query = "SELECT * FROM opera  where museo_id = :museo_id $limit;";
+        $pdo_stm = $this->conn->prepare($query);
+        $pdo_stm->bindValue(':museo_id',$museo_id,PDO::PARAM_INT);
+        $pdo_stm->execute();
+
+        return $pdo_stm->fetchAll(PDO::FETCH_ASSOC);
+    }
     // NOTE forse opera_id non serve
     public function update($opera)  {
 
