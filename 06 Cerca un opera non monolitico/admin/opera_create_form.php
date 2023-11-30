@@ -2,6 +2,7 @@
 require_once("../config.php");
 require_once(SITE_DIR."/vendor/opere_views.php");
 require_once(SITE_DIR."/vendor/crud/OperaCRUD.php");
+require_once(SITE_DIR."/vendor/crud/MuseoCRUD.php");
 require_once(SITE_DIR."/vendor/Validators.php");
 
 $operaObj = new stdClass();
