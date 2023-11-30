@@ -1,6 +1,6 @@
 <?php 
 function get_header($data) { 
-// echo __FUNCTION__.": ".SITE_DIR;
+    // echo __FUNCTION__.": ".SITE_DIR;
     ?>
     <!doctype html>
         <html lang="en">
@@ -22,6 +22,7 @@ function get_header($data) {
             <!-- <li class="nav-item active"><a class="nav-link" href="#">Home</a></li> -->
             <li class="nav-item"><a class="nav-link <?= $data['slug']=='cerca' ? 'active':'' ?>" 
                     href="<?php echo SITE_URL . '/index.php' ?>">Cerca</a></li>
+
             <li class="nav-item">
                 <a class="nav-link <?= $data['slug']=='gam' ? 'active':'' ?>" 
                     href="<?= SITE_URL . '/opere_gam.php';?>">GAM</a></li>

@@ -1,5 +1,42 @@
 # Da FARE 
 
+Nel menu di navigazione 
+
+- [ ] Generare elenco dei musei disponibili nella nav bar
+        MuseiCRUD::readAll()
+        usare lo slug come etichetta 
+  
+- [ ] 😀 creare il controller **SITE_URL.opere_museo.php** accetta un parametro via get **museo_id**   
+
+```html
+
+<ul class="navbar-nav text-uppercase">
+
+            <!-- <li class="nav-item active"><a class="nav-link" href="#">Home</a></li> -->
+            <li class="nav-item">
+                <a class="nav-link " href="HTTP://sito.it/opere_museo.php?museo_id=1">
+                    <?= $museo['slug'] ?><
+                /a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="HTTP://sito.it/opere_museo.php?museo_id=2">MAO</a>
+            </li>
+
+            <li class="nav-item"><a class="nav-link active" href="http://localhost/linguaggio_di_programmazione_php/06%20Cerca%20un%20opera%20non%20monolitico/opere_mao.php">MAO</a>
+            </li>
+
+
+
+
+
+<li class="nav-item"><a class="nav-link " href="http://localhost/linguaggio_di_programmazione_php/06%20Cerca%20un%20opera%20non%20monolitico/admin/opera_create_form.php">Aggiungi un opera</a></li>
+        
+        </ul>
+
+```
+
+
+
 // $museiCrud->readAll();
 
 <a href="museo.it/opera_search?museo_id=;DROP%20TABLE%20opere;">Mao</a>

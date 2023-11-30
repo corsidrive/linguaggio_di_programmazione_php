@@ -6,14 +6,16 @@ require_once "./vendor/opere_views.php";
 require_once SITE_DIR."/vendor/crud/OperaCRUD.php";
 
 $operaCRUD = new OperaCRUD();
+$museoCRUD = new MuseoCRUD();
 // $opere = $operaCRUD->readAll(10);
-$opere = $operaCRUD->readByMuseoId(2,10);
+$opere = $operaCRUD->readByMuseoId($museo_id,10);
 // $opere = ottieni_opere("https://gestione.fondazionetorinomusei.it/media/opendata/COLLEZIONI_MAO.jos.json");
 
 $page['slug'] = 'mao';
 $page['page__title'] = "Opere del MAO (Museo D'arte Orientale)";
 $page['page__header'] = "Fondazione Torino Musei";
 $page['page__section'] = $page['page__title'];
+$page['page__musei'] = $museoCRUD->readAll();
 
 get_header($page);
 opere_table($opere);
