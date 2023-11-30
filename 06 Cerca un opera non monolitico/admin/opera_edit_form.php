@@ -2,11 +2,13 @@
 require_once("../config.php");
 require_once(SITE_DIR."/vendor/opere_views.php");
 require_once(SITE_DIR."/vendor/crud/OperaCRUD.php");
+require_once(SITE_DIR."/vendor/crud/MuseoCRUD.php");
 require_once(SITE_DIR."/vendor/Validators.php");
 /**
  * TODO: RIFARE IMPORTAZIONE
  */
 
+// $opera_id = $_GET['opera_id'];
 $opera_id = filter_input(INPUT_GET,'opera_id',FILTER_SANITIZE_NUMBER_INT);
 
 /** Premo sul bottone modifica via GET  */

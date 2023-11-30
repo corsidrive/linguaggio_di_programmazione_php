@@ -1,6 +1,8 @@
 <?php 
 function get_header($data) { 
-    // echo __FUNCTION__.": ".SITE_DIR;
+    $museiCrud = new MuseoCRUD();
+    $musei = $museiCrud->readAll();
+
     ?>
     <!doctype html>
         <html lang="en">
@@ -23,15 +25,45 @@ function get_header($data) {
             <li class="nav-item"><a class="nav-link <?= $data['slug']=='cerca' ? 'active':'' ?>" 
                     href="<?php echo SITE_URL . '/index.php' ?>">Cerca</a></li>
 
-            <li class="nav-item">
-                <a class="nav-link <?= $data['slug']=='gam' ? 'active':'' ?>" 
-                    href="<?= SITE_URL . '/opere_gam.php';?>">GAM</a></li>
-            <li class="nav-item"><a class="nav-link <?= $data['slug']=='mao' ? 'active':'' ?>" 
-                    href="<?= SITE_URL . '/opere_mao.php' ?>">MAO</a></li>
-            <li class="nav-item"><a class="nav-link <?= $data['slug']=='opera_create' ? 'active':'' ?>" 
-                    href="<?= SITE_URL . '/admin/opera_create_form.php' ?>">Aggiungi un opera</a></li>
+                    <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Musei
+          </a>
+          <ul class="dropdown-menu">
+          <?php
+            foreach ($musei as $key => $museo) { ?>
+
+                <li class="nav-item">
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto text-lowercase">
+      <div class="fw-bold"> <?= $museo['slug'] ?></div>
+      <?= $museo['nome'] ?>
+    </div>
+    <span class="badge bg-primary rounded-pill">14</span>
+  </li>
+            
+                <!-- <a class="nav-link <?= $data['slug']==$museo['slug'] ? 'active':'' ?>" 
+                    href="<?= SITE_URL . '/opere_museo.php?museo_id='.$museo['museo_id'] ?>">
+                            <?= $museo['slug'] ?>
+                    </a> -->
+                </li>
+            <?php } ?>
+          </ul>
+        </li>
+
+
+
+         
+          
         
         </ul>
+        <ul class="navbar-nav text-uppercase">
+        
+        <li class="nav-item"><a class="nav-link <?= $data['slug']=='opera_create' ? 'active':'' ?>" 
+                    href="<?= SITE_URL . '/admin/opera_create_form.php' ?>">Aggiungi un opera</a></li>
+
+        
+                </ul>
     </section>
     
 </nav>
@@ -81,13 +113,17 @@ function opere_table($opere){ ?>
 
 <?php } ?>
 
-<?php function get_opera_form($page,stdClass $opera) { ?>
+<?php function get_opera_form($page,stdClass $opera) { 
+    
+    $museiCrud = new MuseoCRUD();
+    $musei = $museiCrud->readAll();
+    ?>
 
-   <!-- <?php  print_r($opera) ?> -->
+
 <form action="<?= $page['page__action']  ?>" method="post">
 <div class="mb-3">
 
-    <input type="text" name="opera[opera_id]" value="<?= $opera->opera_id ?? "" ?>" >
+    <input type="hidden" name="opera[opera_id]" value="<?= $opera->opera_id ?? "" ?>" >
     
     <label for="titolo"  class="form-label">Titolo dell'opera</label>
     <input type="text"  value="<?= $opera->titolo ?>" class="form-control" name="opera[Titolo]" id="titolo">
@@ -132,8 +168,16 @@ function opere_table($opere){ ?>
     <select name="opera[museo_id]">
 
             <option  >Scegli il museo</option>
-            <option value="3" <?= $opera->museo_id == "3" ? "selected" : ""  ?>  >GAM</option>
-            <option value="2" <?= $opera->museo_id == 2 ? "selected" : "" ?> >MAO</option>
+
+          <?php foreach ($musei as $museo){ ?>
+            <option value="<?= $museo['museo_id'] ?>" 
+                <?= $opera->museo_id == $museo['museo_id'] ? "selected" : ""  ?>  >
+                <?= $museo['nome'] ?>
+            </option>
+
+          <?php }?>
+            <!-- <option value="3" <?= $opera->museo_id == "3" ? "selected" : ""  ?>  >GAM</option>
+            <option value="2" <?= $opera->museo_id == 2 ? "selected" : "" ?> >MAO</option> -->
     </select>
 </div>
 

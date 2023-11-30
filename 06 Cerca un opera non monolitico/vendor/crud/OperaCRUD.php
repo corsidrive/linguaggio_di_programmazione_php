@@ -65,14 +65,14 @@ class OperaCRUD {
         $pdo_stm->bindValue(':opera_id',$opera_id);       
         $pdo_stm->execute();
         $result = $pdo_stm->fetchAll(PDO::FETCH_ASSOC);
-        // isset($ciccio);
+
         if(!isset($result[0])) {
             return false;
         }else{
             return $result[0];
         }
 
-        // return $result[0] ?? false;
+    
     }
 
     /** 

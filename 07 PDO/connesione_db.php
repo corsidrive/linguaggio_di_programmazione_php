@@ -34,7 +34,7 @@ try {
 
 
 
-    print_r($musei);
+    // print_r($musei);
     // foreach ($musei as $key => $museo) {
     //     echo $museo['nome'];
     // }

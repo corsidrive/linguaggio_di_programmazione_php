@@ -8,7 +8,7 @@ require_once "../vendor/crud/OperaCRUD.php";
 $opera_id = 11;
 $crud = new OperaCRUD();
 $opera = $crud->readOne($opera_id);
-print_r($opera);
+
 
 $id_e_una_stringa = $crud->delete($opera_id);
 $opera = $crud->readOne($opera_id);
