@@ -29,26 +29,26 @@ function get_header($data) {
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Musei
           </a>
-          <ul class="dropdown-menu">
+          <div class="dropdown-menu" style="width:17rem">
           <?php
             foreach ($musei as $key => $museo) { ?>
 
-                <li class="nav-item">
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-    <div class="ms-2 me-auto text-lowercase">
-      <div class="fw-bold"> <?= $museo['slug'] ?></div>
-      <?= $museo['nome'] ?>
-    </div>
-    <span class="badge bg-primary rounded-pill">14</span>
-  </li>
-            
-                <!-- <a class="nav-link <?= $data['slug']==$museo['slug'] ? 'active':'' ?>" 
-                    href="<?= SITE_URL . '/opere_museo.php?museo_id='.$museo['museo_id'] ?>">
-                            <?= $museo['slug'] ?>
-                    </a> -->
-                </li>
+                
+                <a href="<?= SITE_URL."/opere_museo.php?museo_id={$museo['museo_id']}"  ?>" class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto text-lowercase">
+                        <div class="fw-bold"> <?= $museo['slug'] ?></div>
+                            <?= $museo['nome'] ?>
+                        </div>
+                        
+                    
+                    
+                        <!-- <a class="nav-link <?= $data['slug']==$museo['slug'] ? 'active':'' ?>" 
+                            href="<?= SITE_URL . '/opere_museo.php?museo_id='.$museo['museo_id'] ?>">
+                                    <?= $museo['slug'] ?>
+                            </a> -->
+                </a>
             <?php } ?>
-          </ul>
+            </div>
         </li>
 
 
@@ -167,7 +167,7 @@ function opere_table($opere){ ?>
     <label for="museo" class="form-label">Museo</label>
     <select name="opera[museo_id]">
 
-            <option  >Scegli il museo</option>
+        <option  >Scegli il museo</option>
 
           <?php foreach ($musei as $museo){ ?>
             <option value="<?= $museo['museo_id'] ?>" 
@@ -176,8 +176,10 @@ function opere_table($opere){ ?>
             </option>
 
           <?php }?>
-            <!-- <option value="3" <?= $opera->museo_id == "3" ? "selected" : ""  ?>  >GAM</option>
-            <option value="2" <?= $opera->museo_id == 2 ? "selected" : "" ?> >MAO</option> -->
+            <!-- 
+            <option value="3" <?= $opera->museo_id == "3" ? "selected" : ""  ?>  >GAM</option>
+            <option value="2" <?= $opera->museo_id == 2 ? "selected" : "" ?> >MAO</option>
+            -->
     </select>
 </div>
 
