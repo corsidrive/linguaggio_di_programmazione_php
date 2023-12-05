@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Nov 21, 2023 alle 13:06
+-- Creato il: Dic 05, 2023 alle 11:12
 -- Versione del server: 10.4.28-MariaDB
 -- Versione PHP: 8.2.4
 
@@ -20,8 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `museo`
 --
--- CREATE DATABASE IF NOT EXISTS `museo` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
--- USE `museo`;
+CREATE DATABASE IF NOT EXISTS `museo` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `museo`;
 
 -- --------------------------------------------------------
 
@@ -43,7 +43,8 @@ CREATE TABLE `museo` (
 
 INSERT INTO `museo` (`museo_id`, `slug`, `nome`, `import_url`) VALUES
 (2, 'mao', 'M.A.O. Museo D\'arte Orientale', NULL),
-(3, 'gam', 'G.A.M. Galleria D\'arte Moderna', NULL);
+(3, 'gam', 'G.A.M. Galleria D\'arte Moderna', NULL),
+(4, 'Ciccio', 'Classificazione Internazionale', 'http://ciccio.it');
 
 -- --------------------------------------------------------
 
@@ -68,13 +69,13 @@ CREATE TABLE `opera` (
 --
 
 INSERT INTO `opera` (`opera_id`, `Autore`, `Titolo`, `Datazione`, `Tecnica`, `Dimensioni`, `Immagine`, `museo_id`) VALUES
-(1, '', 'Vajradhara', 'XV-XVI secolo', 'fusione in bronzo, doratura, pigmenti e turchesi ', '', 'http://93.62.170.226/foto/mao/867_Hb10.jpg', 2),
-(2, '', 'Sitatārā', 'XVI secolo', 'fusione in bronzo, doratura, pigmento e turchesi', '', 'http://93.62.170.226/foto/mao/868_Hb11.jpg', 2),
-(3, '', 'Buddha Śākyamuni', 'XVI secolo', 'fusione in lega di rame, oro freddo e pigmento', '', 'http://93.62.170.226/foto/mao/869_Hb12.jpg', 2),
-(4, '', 'Amitāyus', 'XVII secolo, seconda metà', 'fusione in lega di rame, doratura e pietre semipre', '', 'http://93.62.170.226/foto/mao/870_Hb13.jpg', 2),
-(5, '', 'Guhyasamāja Mañjuvajra', '', 'fusione in lega di rame, doratura e pigmenti', '', 'http://93.62.170.226/foto/mao/871_Hb14.jpg', 2),
-(6, '', 'Vajrahumkara', 'XVIII secolo', 'fusione in lega di rame, parziale doratura, tracce', '', 'http://93.62.170.226/foto/mao/872_Hb15.jpg', 2),
-(7, '', 'Mahācakra Vajrapāṇi', 'XVIII secolo', 'fusione in lega di rame, parziale doratura, pigmen', '', 'http://93.62.170.226/foto/mao/873_873_Hb16.jpg', 2),
+(1, 'autore di prova', 'Vajradhara', 'XV-XVI secolo', 'fusione in bronzo, doratura, pigmenti e turchesi ', 'dimensione di prova', 'http://93.62.170.226/foto/mao/867_Hb10.jpg', 3),
+(2, '', 'Sitatārā', 'XVI secolo', 'fusione in bronzo, doratura, pigmento e turchesi', '', 'http://93.62.170.226/foto/mao/868_Hb11.jpg', 3),
+(3, '', 'Buddha Śākyamuni', 'XVI secolo', 'fusione in lega di rame, oro freddo e pigmento', '', 'http://93.62.170.226/foto/mao/869_Hb12.jpg', 3),
+(4, '', 'Amitāyus', 'XVII secolo, seconda metà', 'fusione in lega di rame, doratura e pietre semipre', '', 'http://93.62.170.226/foto/mao/870_Hb13.jpg', 3),
+(5, '', 'Guhyasamāja Mañjuvajra', 'Datazione prova', 'fusione in lega di rame, doratura e pigmenti', 'dimensione prova', 'http://93.62.170.226/foto/mao/871_Hb14.jpg', 2),
+(6, 'sss', 'sss', 'sss', 'aaa', 'zzzzzzzzzzz', 'http://93.62.170.226/foto/mao/872_Hb15.jpg', 3),
+(7, '', 'Mahācakra Vajrapāṇi', 'XVIII secolo', 'fusione in lega di rame, parziale doratura, pigmen', '', 'http://93.62.170.226/foto/mao/873_873_Hb16.jpg', 3),
 (8, '', 'Dam-can rDo-rje-legs-pa', 'XVIII secolo', 'fusione di lega in rame, doratura a fuoco e pigmen', '', 'http://93.62.170.226/foto/mao/874_Hb17.jpg', 2),
 (9, '', 'Hayagrīva', 'XVII secolo', 'fusione in bronzo, parziale doratura, pigmento ros', '', 'http://93.62.170.226/foto/mao/875_Hb18.jpg', 2),
 (12, '', 'Śrīmatī (dPal-ldan dMag-zor-rgyal-mo)', 'XVIII secolo', 'fusione di lega in rame, doratura a fuoco, pigment', '', 'http://93.62.170.226/foto/mao/878_Hb20.jpg', 2),
@@ -4193,7 +4194,7 @@ ALTER TABLE `opera`
 -- AUTO_INCREMENT per la tabella `museo`
 --
 ALTER TABLE `museo`
-  MODIFY `museo_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `museo_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT per la tabella `opera`

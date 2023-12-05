@@ -5,23 +5,25 @@ require_once(SITE_DIR."/vendor/crud/OperaCRUD.php");
 require_once(SITE_DIR."/vendor/crud/MuseoCRUD.php");
 require_once(SITE_DIR."/vendor/Validators.php");
 
-$operaObj = new stdClass();
+
 # Valore predefinito
-$operaObj->titolo = "";
+$operaObj = new stdClass();
 $operaObj->autore = "";
 $operaObj->immagine = "";
-$operaObj->datatazione = "";
+$operaObj->tecnica = "";
+$operaObj->titolo = "";
+$operaObj->datazione  = "";
+$operaObj->dimensioni = "";
+$operaObj->museo_id = "";
+$operaObj->opera_id = "";
 
 
 if($_SERVER['REQUEST_METHOD']=="POST"){
+ 
     
     $opera = $_POST["opera"]; // Dal Form
     
-    $operaObj->titolo = Validators::required($opera['Titolo']);
-    // $autore = Validators::required($opera["Autore"]);
-    $operaObj->immagine = Validators::isUrl($opera["Immagine"]);
-    $operaObj->datatazione = Validators::cleanData($opera['Datazione']);
-
+    $operaObj = Validators::publishOpera($opera);
     # risultato della validazione utilizzo per  sapere se posso salvare o no l'opera
     if($operaObj->titolo !== false && $operaObj->autore !== false && $operaObj->immagine !== false){
         $operaCrud = new OperaCRUD();

@@ -115,6 +115,8 @@ function opere_table($opere){ ?>
 
 <?php function get_opera_form($page,stdClass $opera) { 
     
+    print_r($opera);
+
     $museiCrud = new MuseoCRUD();
     $musei = $museiCrud->readAll();
     ?>
@@ -143,7 +145,7 @@ function opere_table($opere){ ?>
 <div class="mb-3">
     <label for="datazione"  class="form-label">datazione dell'opera</label>
     <input type="text" 
-    value="<?= $opera->datazione  ?>"   
+    value="<?= $opera->datazione   ?>"   
     class="form-control" name="opera[Datazione]" id="datazione">
 
 </div>
