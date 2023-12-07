@@ -39,7 +39,7 @@ class Validators {
         $operaObj = new stdClass;
         $operaObj->titolo = Validators::required($opera['Titolo']);
         $operaObj->autore = Validators::cleanData($opera["Autore"]);
-        $operaObj->immagine = Validators::isUrl($opera["Immagine"]);
+        // $operaObj->immagine = Validators::isUrl($opera["Immagine"]);
         $operaObj->datazione = Validators::cleanData($opera['Datazione']);
         $operaObj->tecnica = Validators::cleanData($opera['Tecnica']);
         $operaObj->dimensioni = Validators::cleanData($opera['Dimensioni']);

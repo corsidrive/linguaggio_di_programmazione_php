@@ -1,3 +1,19 @@
+upload_file('Immagine',SITE_URL."uploads/opere_immagini/",["jpg","png"])
+upload_file('Immagine',SITE_URL."uploads/opere_immagini/mao")
+
+$options = [
+    'name' =>  'Immagine',
+    'destination' => "..",
+    'max' => 8,   
+    'width' => 100,   
+    'red' => "50",   
+];
+upload_file('Immagine',$options)
+
+- name (input[name])
+- tipo file (jpeg,pdf,ecc)
+- destinazione
+
 # Da FARE 
 
 Nel menu di navigazione 

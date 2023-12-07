@@ -16,7 +16,7 @@ class OperaCRUD {
 
 
 
-    public function create($opera) {
+    public function create(array $opera) {
     
         // $autore = ";DROP DATABASE museo;";
         $autore = $opera["Autore"];

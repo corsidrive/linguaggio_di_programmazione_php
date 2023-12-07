@@ -115,14 +115,14 @@ function opere_table($opere){ ?>
 
 <?php function get_opera_form($page,stdClass $opera) { 
     
-    print_r($opera);
+    // print_r($opera);
 
     $museiCrud = new MuseoCRUD();
     $musei = $museiCrud->readAll();
     ?>
 
 
-<form action="<?= $page['page__action']  ?>" method="post">
+<form action="<?= $page['page__action']  ?>" method="post" enctype="multipart/form-data" >
 <div class="mb-3">
 
     <input type="hidden" name="opera[opera_id]" value="<?= $opera->opera_id ?? "" ?>" >
@@ -153,12 +153,20 @@ function opere_table($opere){ ?>
 
 <div class="mb-3">
     <label for="tecnica" class="form-label">Tecnica</label>
-    <input type="text" value="<?= $opera->tecnica ?>" class="form-control" name="opera[Tecnica]" id="tecnica">
+    <input type="text" value="<?= $opera->tecnica ?>" 
+    class="form-control" 
+    name="opera[Tecnica]" id="tecnica">
 </div>
 <div class="mb-3">
     <label for="immagine" class="form-label">Immagine</label>
-    <input type="text" value="<?= $opera->immagine; ?>" class="form-control" name="opera[Immagine]" id="immagine">
-    <?= $opera->immagine === false ? "<strong class='text-danger'>L'url dell' immagine è sbagliata </strong>":"" ?>
+   
+    <img src="<?= SITE_URL.'/uploads/immagini_opere/'.$opera->immagine ?>">
+    <img src="<?= $opera->immagine ?>">
+    <input type="file" name="Immagine" class="form-control" />
+    <!-- <input type="file" name="Immagine[]" class="form-control" /> -->
+   
+    <!-- <input type="text" value="<?= $opera->immagine; ?>" class="form-control" name="opera[Immagine]" id="immagine"> -->
+    <!-- <?= $opera->immagine === false ? "<strong class='text-danger'>L'url dell' immagine è sbagliata </strong>":"" ?> -->
 </div>
 <div class="mb-3">
     <label for="dimensioni"  class="form-label">Dimensioni</label>

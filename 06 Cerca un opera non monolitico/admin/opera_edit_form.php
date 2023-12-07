@@ -43,7 +43,25 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $operaObj = Validators::publishOpera($opera);
  
 
-    if($operaObj->titolo !== false && $operaObj->immagine !== false){
+    if($operaObj->titolo !== false){
+
+        if($_FILES['Immagine']['error'] == UPLOAD_ERR_OK ){
+
+            $upload_folder = SITE_DIR."/uploads/immagini_opere";
+            $nome_file_originale = $_FILES['Immagine']['name'];
+            $path_file_temporaneo = $_FILES['Immagine']['tmp_name'];
+        
+        // controlla jpegg
+            
+            if(!file_exists($upload_folder)){
+                mkdir($upload_folder,0777,true);
+            }
+
+            
+            move_uploaded_file($path_file_temporaneo,$upload_folder."/".$nome_file_originale);
+        }
+
+        $opera['Immagine'] = $nome_file_originale;
 
         $operaCrud = new OperaCRUD();
         $operaCrud->update($opera);
