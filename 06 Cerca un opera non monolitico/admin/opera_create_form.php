@@ -28,9 +28,11 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     # risultato della validazione utilizzo per  sapere se posso salvare o no l'opera
     if($operaObj->titolo !== false && $operaObj->autore !== false){
       
+        // print_r($_FILES);
         // 115.jpeg
         // uploads/immagini_opere/$opera_id.jpeg
 
+        # se  upload  ha successo 
         if($_FILES['Immagine']['error'] == UPLOAD_ERR_OK ){
 
             $upload_folder = SITE_DIR."/uploads/immagini_opere";
@@ -41,8 +43,10 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
             if(!file_exists($upload_folder)){
                 mkdir($upload_folder,0777,true);
             }
+
             
             move_uploaded_file($path_file_temporaneo,$upload_folder."/".$nome_file_originale);
+            
         }
 
         // print_r($opera);

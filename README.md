@@ -1,18 +1,26 @@
-upload_file('Immagine',SITE_URL."uploads/opere_immagini/",["jpg","png"])
-upload_file('Immagine',SITE_URL."uploads/opere_immagini/mao")
 
 $options = [
-    'name' =>  'Immagine',
-    'destination' => "..",
-    'max' => 8,   
-    'width' => 100,   
-    'red' => "50",   
+    'ext' => ['jpeg','jpg','png'] 
 ];
-upload_file('Immagine',$options)
+
+upload_file('Immagine','/uploads',$options);
 
 - name (input[name])
 - tipo file (jpeg,pdf,ecc)
 - destinazione
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Da FARE 
 
