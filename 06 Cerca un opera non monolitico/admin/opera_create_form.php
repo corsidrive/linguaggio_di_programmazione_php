@@ -4,14 +4,14 @@ require_once(SITE_DIR."/vendor/opere_views.php");
 require_once(SITE_DIR."/vendor/crud/OperaCRUD.php");
 require_once(SITE_DIR."/vendor/crud/MuseoCRUD.php");
 require_once(SITE_DIR."/vendor/Validators.php");
-
+require_once(SITE_DIR."/vendor/file/uploads.php");
 
 
 
 # Valore predefinito
 $operaObj = new stdClass();
 $operaObj->autore = "";
-// $operaObj->immagine = "";
+$operaObj->immagine = "";
 $operaObj->tecnica = "";
 $operaObj->titolo = "";
 $operaObj->datazione  = "";
@@ -27,33 +27,19 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     $operaObj = Validators::publishOpera($opera);
     # risultato della validazione utilizzo per  sapere se posso salvare o no l'opera
     if($operaObj->titolo !== false && $operaObj->autore !== false){
-      
-        // print_r($_FILES);
-        // 115.jpeg
-        // uploads/immagini_opere/$opera_id.jpeg
-
-        # se  upload  ha successo 
-        if($_FILES['Immagine']['error'] == UPLOAD_ERR_OK ){
-
-            $upload_folder = SITE_DIR."/uploads/immagini_opere";
-            $nome_file_originale = $_FILES['Immagine']['name'];
-            $path_file_temporaneo = $_FILES['Immagine']['tmp_name'];
         
-            
-            if(!file_exists($upload_folder)){
-                mkdir($upload_folder,0777,true);
-            }
-
-            
-            move_uploaded_file($path_file_temporaneo,$upload_folder."/".$nome_file_originale);
-            
+        $immagine_opera_folder = '/uploads/immagini_opere';
+        $immagine_opera_nome = upload_file('Immagine',$immagine_opera_folder);
+        
+        if($immagine_opera_nome){
+            // print_r($opera);
+            $opera['Immagine'] = $immagine_opera_nome;
+            $operaObj->immagine = $immagine_opera_nome;
+        
+            $operaCrud = new OperaCRUD();
+            $operaCrud->create($opera);
         }
 
-        // print_r($opera);
-        $opera['Immagine'] = $nome_file_originale;
-        
-        $operaCrud = new OperaCRUD();
-        $operaCrud->create($opera);
 
     }
 

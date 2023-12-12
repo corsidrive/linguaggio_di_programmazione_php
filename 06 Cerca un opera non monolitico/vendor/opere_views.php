@@ -158,15 +158,18 @@ function opere_table($opere){ ?>
     name="opera[Tecnica]" id="tecnica">
 </div>
 <div class="mb-3">
-    <label for="immagine" class="form-label">Immagine</label>
-   
-    <img src="<?= SITE_URL.'/uploads/immagini_opere/'.$opera->immagine ?>">
-    <img src="<?= $opera->immagine ?>">
-    <input type="file" name="Immagine" class="form-control" />
-    <!-- <input type="file" name="Immagine[]" class="form-control" /> -->
-   
-    <!-- <input type="text" value="<?= $opera->immagine; ?>" class="form-control" name="opera[Immagine]" id="immagine"> -->
-    <!-- <?= $opera->immagine === false ? "<strong class='text-danger'>L'url dell' immagine è sbagliata </strong>":"" ?> -->
+    <div class="row">
+        <div class="col">
+            <label for="immagine" class="form-label">Immagine</label>
+            <input type="file" name="Immagine" class="form-control" />
+        </div>
+        <?php if(isset($opera->immagine)){?> 
+        <div class="col">
+            <label for="immagine" class="form-label">Immagine Attuale</label>
+                <img width="300px" src="<?= SITE_URL.'/uploads/immagini_opere/'.$opera->immagine ?>">        
+            </div>
+        <?php } ?>
+    </div>
 </div>
 <div class="mb-3">
     <label for="dimensioni"  class="form-label">Dimensioni</label>
