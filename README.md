@@ -1,7 +1,7 @@
 
-scrivere  la funzione 
+Scrivere  la funzione nel file:
 
-06 Cerca un opera non monolitico\vendor\file\uploads.php
+> 06 Cerca un opera non monolitico\vendor\file\uploads.php
 
 
 ```php
