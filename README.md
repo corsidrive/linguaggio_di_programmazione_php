@@ -1,10 +1,19 @@
 
+scrivere  la funzione 
+
+06 Cerca un opera non monolitico\vendor\file\uploads.php
+
+
+```php
+
 $options = [
-    'ext' => ['jpeg','jpg','png'] 
+    'ext' => ['jpeg','jpg','png']
 ];
 
-upload_file('Immagine','/uploads',$options);
+upload_file('Immagine',SITE_DIR.'/uploads/immagini_opere',$options);
+upload_file('foto_museo',SITE_DIR.'/uploads/musei',$options);
 
+```
 - name (input[name])
 - tipo file (jpeg,pdf,ecc)
 - destinazione
